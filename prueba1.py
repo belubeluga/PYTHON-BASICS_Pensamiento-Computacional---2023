@@ -235,3 +235,54 @@ else:
 
 
 # %%
+num = int(input('elija numero entr 1 y 6:'))
+
+a = " "
+b = " "
+c = " "
+d = " "
+e = " "
+f = " "
+g = " "
+
+if num == 1:
+    d = "*"
+elif num == 2:
+    a = "*"
+    g = "*"
+elif num == 3:
+    a = "*"
+    d = "*"
+    g = "*"
+elif num == 4:
+    a = "*"
+    e = "*"
+    c = "*"
+    g = "*"
+elif num == 5:
+    a = "*"
+    e = "*"
+    d = "*"
+    c = "*"
+    g = "*"
+elif num == 6:
+    a = "*"
+    e = "*"
+    b = "*"
+    f = "*"
+    c = "*"
+    g = "*"
+
+    
+dado = f'''
+ ___________
+|           |
+|  {a}     {e}  |
+|  {b}  {d}  {f}  |
+|  {c}     {g}  |
+|___________|
+'''
+
+if 1<=num<=6: print(dado)
+else: print("error")
+# %%
