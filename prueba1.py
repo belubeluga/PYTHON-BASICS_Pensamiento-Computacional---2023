@@ -81,28 +81,157 @@ else:
      print(f'{año} NO es un año bisiesto')
 
 # %%
-#Condicionales/Decisiones (10)
+#Condicionales/Decisiones (10)              #terminar!!!!
 #(b)
 año = int(input("año: "))
 mes = int(input("mes: "))
+dia = int(input("dia"))
 mes1 = 31
 mes2 = 30
 mes3 = 29 #ver en que año
 mes4 = 28
 
-if mes%2 == 1: #OJO CON EL ==, NO OLVIDAR
-    print(f'{año},{mes}: {mes1}')
-elif mes == 2: #casos febrero
+if año > 2023 or año < 0 or mes > 12 or mes<1 or dia > 31:
+    print("fecha invalida")
+elif mes<=7:
+    if mes%2 == 1: #OJO CON EL ==, NO OLVIDAR
+        print(f'{año},{mes}: {mes1}')
+        print(f'Faltan {int(mes1) - dia} para fin de mes')
+    elif mes == 2: #casos febrero
     #casos años bisisestos
-    if not(año%4):
-        if año%100 != 0:
-            print(f'{año}, {mes}: {mes3}')
+        if not(año%4):
+            if año%100 != 0:
+                if dia<30:
+                 print(f'{año}, {mes}: {mes3}')
+                 print(f'Faltan {int(mes3) - dia} para fin de mes')
+                else: print("fecha invalida")
+            else:
+                if not(año%400):
+                    if dia<30:
+                        print(f'{año}, {mes}: {mes3}')
+                        print(f'Faltan {int(mes3) - dia} para fin de mes')
+                    else: print("fecha invalida")
         else:
-            if not(año%400):
-                print(f'{año}, {mes}: {mes3}')   
+            if dia<30:
+                print(f'{año}, {mes}: {mes4}')
+                print(f'Faltan {int(mes4) - dia} para fin de mes')
+            else: print("fecha invalida")
+    elif not(mes%2):
+        if dia<=30:
+            print(f'{año}, {mes}: {mes2}')
+            print(f'Faltan {int(mes2) - dia} para fin de mes')
+        else: print("fecha invalida")
+if mes>7: #a partir de agosto se invierten
+    if mes%2 == 1: 
+        print(f'{año},{mes}: {mes2}')
+        print(f'Faltan {int(mes2) - dia} para fin de mes')
+    elif not(mes%2):
+        print(f'{año}, {mes}: {mes1}')
+        print(f'Faltan {int(mes1) - dia} para fin de mes')
+
+
+#%%
+#Condicionales/Decisiones (11)
+dia = int(input("numero de dia:"))
+mes = int(input("numero de mes:"))
+año = int(input("numero de año: "))
+fecha = (dia, mes, año)
+primavera = (21, 9, 0)
+
+
+
+
+
+
+
+
+# %%
+# Ejercicios Secuencias y condicionales 16/8 (clase tutorial)
+# ejercicio 1
+a = float(input())
+b = float(input())
+
+if b == 0:
+    print("error, no se puede dividir por cero")
+else:
+    print(a/b)
+# %%
+# Ejercicios Secuencias y condicionales 16/8 (clase tutorial)
+# ejercicio 2
+a = int(input("elija un num entero"))
+print(f'num = {a}')
+if a > 0:
+    print("A")
+    if a%2==0:
+        print("C")
+    if a%5==0:
+        print("D")
+elif a < 0:
+    print("B")
+    if a%4==0:
+        print("E")
+    if a%7==0:
+        print("F")
+elif a == 0:
+    print("O")
+    
+
+# %%
+# Ejercicios Secuencias y condicionales 16/8 (clase tutorial)
+# ejercicio 3
+base = "tomate, mozzarela"
+opciones_validasp = ("Pepperoni", "pepperoni","p", 1)
+veg_o_no = input("quiere pizza VEGETARIANA? si/no")
+if veg_o_no == "si":
+    veg = input("Pimiento o Cilantro?: ")
+    if veg == "Pimiento" or veg == "pimiento":
+        print(f'Pizza: Vegetariana \nIngredientes: {base} y {veg}')
+    elif veg == "Cilantro" or veg == "cilantro":
+        print(f'Pizza: Vegetariana \nIngredientes: {base} y cilantro')
     else:
-        print(f'{año}, {mes}: {mes4}')
-elif not(mes%2):
-    print(f'{año}, {mes}: {mes2}')
+        print("error")
+elif veg_o_no == "no":
+    nov = input("elija 1: Pepperoni, Jamon o Salmon? ")
+    if nov in opciones_validasp:
+        print(f'Pizza: No vegetariana \nIngredientes: {base} y Pepperoni')
+    elif nov == "Jamon" or nov == "jamon":
+        print(f'Pizza: No vegetariana \nIngredientes: {base} y Jamon')
+    elif nov == "Salmon" or nov == "salmon":
+        print(f'Pizza: NO vegetariana \nIngredientes: {base} y Salmon')
+    else:
+        print("error")
+else:
+    print("error")
+# %%
+# Ejercicios Secuencias y condicionales 16/8 (clase tutorial)
+# ejercicio 4
+a = int(input('elija numero entr 1 y 6:'))
+1<=a<=6
+
+n1 = str(" ___________"'\n'"|           |"'\n'"|           |"'\n'"|     *     |"'\n'"|           |"'\n'"|___________|")
+n2 = str(" ___________"'\n'"|           |"'\n'"|  *        |"'\n'"|           |"'\n'"|        *  |"'\n'"|___________|")
+n3 = str(" ___________"'\n'"|           |"'\n'"|  *        |"'\n'"|     *     |"'\n'"|        *  |"'\n'"|___________|")
+n4 = str(" ___________"'\n'"|           |"'\n'"|  *     *  |"'\n'"|           |"'\n'"|  *     *  |"'\n'"|___________|")
+n5 = str(" ___________"'\n'"|           |"'\n'"|  *     *  |"'\n'"|     *     |"'\n'"|  *     *  |"'\n'"|___________|")
+n6 = str(" ___________"'\n'"|           |"'\n'"|  *     *  |"'\n'"|  *     *  |"'\n'"|  *     *  |"'\n'"|___________|")
+
+
+if not(1<=a<=6):
+    print("error")
+else:
+    if a == 1:
+        print(n1)
+    elif a == 2:
+        print(n2)
+    elif a ==3:
+        print(n3)
+    elif a == 4:
+        print(n4)
+    elif a == 5:
+        print(n5)
+    elif a ==6:
+        print(n6)
+
+
 
 # %%
