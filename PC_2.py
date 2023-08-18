@@ -236,7 +236,7 @@ import math
 #keyword/nombre(parametros)
 def beat (f1, f2, t):
     '''
-    (Como funciona la funcion (manual))
+    (Como funciona la funcion (manual)) --> lo busco con help(funcion)
     Compute a beat signal value at time t from cosine functions Of f1 and f 2 frequencies.
     f1 -- first cosine frequency
     f2 -- second cosine frequency
@@ -248,7 +248,8 @@ def beat (f1, f2, t):
     v1 = math.cos(tau * f1 * t)
     v2 = math.cos(tau * f2 * t)
     return v1 + v2 #NUNCA RETORNAR PRINT (hacer que te devuelvan valor solo, asi son reutilizables)
-
+        # return no deberia MOSTRAR/imprimir el resultado
+        # solo devolver valor
 beat(110, 104, 0.2)
 #%%
 def greet(name):
@@ -269,5 +270,8 @@ f = suma(x, y) #se asignana los valores
 #                |--> (stack frame) // memoria temporal a = 2 // b = 1 
 print(mensaje, f)
 
+help(suma) #me devuelve el docstring de la funcion
+
+# PYTHON TUTOR
 
 # %%
