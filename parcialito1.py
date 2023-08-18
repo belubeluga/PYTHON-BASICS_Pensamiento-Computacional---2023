@@ -19,3 +19,9 @@ li += [1,2] #(no te cambia el elemento, lo expande)
 #para acceder a elementos dentro del diccionario --> CLAVES
 
 print(lista) #aplica str al contenido
+
+#ESTUDIAR FUNCIONES BUILT IN !!!!!
+# min - max - print - list - etc.
+#1) diccionario
+#2) estructuras
+#3) corregir / justificar xq no funciona

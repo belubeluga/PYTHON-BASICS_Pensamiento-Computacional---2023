@@ -225,3 +225,49 @@ else:
 print(f'Precio es ${precio_final}')
 
 # %%
+#18/8
+# FUNCIONES
+        #entrada         --->       salida
+        #argumentos      --->       valor retorno
+        #parametros      --->       resultado
+    # definir parametros de entradas
+    # que sean chiquitas y reutilizables    (una tarea en particular)
+import math
+#keyword/nombre(parametros)
+def beat (f1, f2, t):
+    '''
+    (Como funciona la funcion (manual))
+    Compute a beat signal value at time t from cosine functions Of f1 and f 2 frequencies.
+    f1 -- first cosine frequency
+    f2 -- second cosine frequency
+    t -- time at which to evaluate the beat
+    Returns:
+    beat signal
+    '''
+    tau = 2 * 3.14
+    v1 = math.cos(tau * f1 * t)
+    v2 = math.cos(tau * f2 * t)
+    return v1 + v2 #NUNCA RETORNAR PRINT (hacer que te devuelvan valor solo, asi son reutilizables)
+
+beat(110, 104, 0.2)
+#%%
+def greet(name):
+    """Returns a string to greet someone.
+    Arguments:
+    Name -- name of the person to greet
+    """
+    return f'Hello, {name}' #indentacion
+greet("Yoda") #invocacion
+#%%
+def suma(a, b):
+    c = a + b
+    return c
+x = 2 #genero todos los parametros
+y = 1 #Global frame   #(la cantidad que permite la funcion)
+mensaje = "Resultado: "
+f = suma(x, y) #se asignana los valores 
+#                |--> (stack frame) // memoria temporal a = 2 // b = 1 
+print(mensaje, f)
+
+
+# %%
