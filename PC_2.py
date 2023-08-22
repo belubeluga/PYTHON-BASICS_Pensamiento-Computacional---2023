@@ -28,6 +28,7 @@ while palabra != 'salir':
      print(f'Palabra ingresada --> {palabra}\n')
 print('Salimos del ciclo!')
 
+# BREAK
 numero = 0
 while numero < 100:
      numero = int(input('Ingrese un número: '))
@@ -57,21 +58,20 @@ print(f"El valor final de guess es {guess}")
 # Problema 1
 #%%
 clave = "Correcto"
-clave1 = ''
+clave1 = input("Ingrese la clave:")
+intentos = 1 #!!!!!
 
-intentos = 0
-while clave1 != clave:
+while clave1 != clave and intentos < 3:
+    print("Clave incorrecta, intente otra vez\n")
     clave1 = input("Ingrese la clave:")
-    if clave1 != clave:
-        print("Clave incorrecta, intente otra vez\n")
-        intentos += 1
-        if intentos < 5:
-            continue
-        elif intentos >= 5:
-            print("Se excedio la cantidad de intentos")
-        break 
-if clave1 == clave:
-    print("Clave correcta")
+    intentos += 1
+     
+if clave1 != clave:
+    print("Clave incorrecta. Se excedio la cantidad de intentos")
+elif clave1 == clave:
+    print("Clave correcta. Accediendo al sistema")
+
+# USAR DEBUGGER
 
 # %%
 # Problema 2
@@ -87,9 +87,9 @@ if texto == "q":
 
 
 #%%
-nombre = input("")
-apellido = input("")
-edad = input("")
+nombre = input("ingrese nombre: ")
+apellido = input("ingrese apellido: ")
+edad = input("inrese edad: ")
 lista = [nombre, apellido, edad]
 datos = nombre + apellido + edad
 puntuacion = "." or "," or ";" 
@@ -104,9 +104,9 @@ while datos:
         break
 print(lista)
 # %%
-nombre = input("")
-apellido = input("")
-edad = input("")
+nombre = ''
+apellido = ''
+edad = ''
 lista = [nombre, apellido, edad]
 datos = nombre + apellido + edad
  
@@ -139,7 +139,7 @@ while "." or "," or ";" in datos:
 for i in range(3, 17, 2):
     print(i, end=" ") # 3 5 7 9 11 13 15
 
-
+#%%
 lista = [-2, '123', 'beta', True, False, 1500]
 for e in lista:
   print(e)
