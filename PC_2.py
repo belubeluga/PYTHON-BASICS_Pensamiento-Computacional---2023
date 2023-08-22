@@ -55,21 +55,6 @@ while abs(guess ** 2 - z) > 0.0001:
 print(f"El valor final de guess es {guess}")
 
 
-# Problema 1
-#%%
-clave = "Correcto"
-clave1 = input("Ingrese la clave:")
-intentos = 1 #!!!!!
-
-while clave1 != clave and intentos < 3:
-    print("Clave incorrecta, intente otra vez\n")
-    clave1 = input("Ingrese la clave:")
-    intentos += 1
-     
-if clave1 != clave:
-    print("Clave incorrecta. Se excedio la cantidad de intentos")
-elif clave1 == clave:
-    print("Clave correcta. Accediendo al sistema")
 
 # USAR DEBUGGER
 
@@ -87,7 +72,7 @@ if texto == "q":
 
 
 #%%
-nombre = input("ingrese nombre: ")
+nombre = input("ingrese nombre: ") #completar/corregir
 apellido = input("ingrese apellido: ")
 edad = input("inrese edad: ")
 lista = [nombre, apellido, edad]
@@ -104,7 +89,7 @@ while datos:
         break
 print(lista)
 # %%
-nombre = ''
+nombre = '' #corregir
 apellido = ''
 edad = ''
 lista = [nombre, apellido, edad]
@@ -273,5 +258,54 @@ print(mensaje, f)
 help(suma) #me devuelve el docstring de la funcion
 
 # PYTHON TUTOR
+
+
+
+#%%
+# Problema 1
+clave = "Correcto"
+clave1 = input("Ingrese la clave:")
+intentos = 1 #!!!!!
+
+while clave1 != clave and intentos < 3:
+    print("Clave incorrecta, intente otra vez\n")
+    clave1 = input("Ingrese la clave:")
+    intentos += 1
+     
+if clave1 != clave:
+    print("Clave incorrecta. Se excedio la cantidad de intentos")
+elif clave1 == clave:
+    print("Clave correcta. Accediendo al sistema")
+# %%
+#ejercicio 2 (22/8)
+#problemas 4
+import random
+
+for _ in range(100):
+    num = random.randint(1,6)
+    print(num)
+
+#%%
+#ejercicio 3
+#problemas 4
+
+notas = []
+nota = input("nota o -1: ")
+
+
+while nota != "-1":
+    notas += [int(nota)]
+    nota = input("nota o -1: ")
+
+# forma 1
+promedio = sum(notas) / len(notas)
+
+# forma 2
+suma = 0
+for notaa in notas:
+    suma += notaa
+promedio1 = suma / len(notas)
+
+print(promedio,'\n',promedio1)
 
 # %%
