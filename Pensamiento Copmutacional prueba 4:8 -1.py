@@ -420,10 +420,5 @@ print("El precio de", producto3["nombre"], "es de $",producto3["precio"])
 # print(tuplas_a_diccionario(l))
 { 'Hola': ['don Pepito', 'don Jose'], 'Buenos': ['días'] }
 
-#%%
-from termcolor import colored, cprint
-cansados = colored(9*'?', 'dark_grey')
-dormidos = colored(5*'?', 'cyan')
-despiertos = colored('?', 'light_red')
-print(f'2 {cansados}{dormidos}{despiertos}')
+
 # %%
