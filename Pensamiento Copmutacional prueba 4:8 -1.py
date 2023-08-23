@@ -311,15 +311,17 @@ li = ["yo", 2, False]
 # len() --> se puede aplicas len()
 #print("transforma lo que le des a str")
 
+#%%
 t1 = (5,) #tuple
 print(t1)
 print(len(t1))
-
+#%%
 T1 = ("a", "b", "c") + ("d", "e")
 T2 = (1, 2, 3) * 3
 T3 = (0, 7) in ("hola", 2.5, (0, 7))
-print(T1, T2, T3)
-
+print(T1,T2,T3, sep='\n') 
+print(" "*len(str(T3)), len(T1))
+#%%
 
 
 # INDEXING []
@@ -407,3 +409,21 @@ print("El precio de", producto3["nombre"], "es de $",producto3["precio"])
 
 # %%
 #int(datos_messi["goles"]) + ...int(datos)
+
+#%%
+#Escribir una función que reciba una lista de tuplas, 
+# y que devuelva un diccionario en donde 
+# las claves sean los primeros elementos de las tuplas, 
+# y los valores una lista con los segundos. Por ejemplo:
+
+# l = [ ('Hola', 'don Pepito'), ('Hola', 'don Jose'),('Buenos', 'días') ]
+# print(tuplas_a_diccionario(l))
+{ 'Hola': ['don Pepito', 'don Jose'], 'Buenos': ['días'] }
+
+#%%
+from termcolor import colored, cprint
+cansados = colored(9*'?', 'dark_grey')
+dormidos = colored(5*'?', 'cyan')
+despiertos = colored('?', 'light_red')
+print(f'2 {cansados}{dormidos}{despiertos}')
+# %%

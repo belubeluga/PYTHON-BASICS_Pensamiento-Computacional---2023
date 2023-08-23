@@ -197,6 +197,7 @@ capital = float(input(""))
 dia = float(input('dia:'))
 meses = float(input("dentro de cuantos meses quiere retirar"))
 cf = ((tna/100)*capital)*(meses/12) + capital
+cf = capital * (tna * 12)
 
 #%%
 #13)
@@ -391,7 +392,7 @@ elif num == 6:
     f = "*"
     c = "*"
     g = "*"
-
+else: print("error")
     
 dado = f'''
  ___________
@@ -402,6 +403,5 @@ dado = f'''
 |___________|
 '''
 
-if 1<=num<=6: print(dado)
-else: print("error")
+
 # %%

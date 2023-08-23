@@ -309,3 +309,63 @@ promedio1 = suma / len(notas)
 print(promedio,'\n',promedio1)
 
 # %%
+p = bool(int(input('p = 1 o 0: ')))
+q = bool(int(input('q = 1 o 0: ')))
+r = bool(int(input('r = 1 o 0: ')))
+
+if p:
+    if q == r:
+        z = 0
+    elif q != r:
+        z = 1
+elif not(p):
+    if q == r:
+        z = 1
+    else:
+        z = 0
+print(z)
+# %%
+x = 1
+y = -2
+z = 0
+
+if y == 1:
+    z = 2
+if z == 1:
+    w = x + y
+    print("alpha")
+elif z == 1 and x == 0:
+    print("beta")
+    w = z + x + y
+    if w == 4:
+        w = 2
+    print("gamma")
+elif z == 2:
+    z = 1
+    print("delta")
+else:
+    w = 10
+    print("epsilon")
+
+print("z =", z)
+print("w =", w)
+# %%
+si = "flores" - "es"
+# %%
+bi = float("2.0")
+print(bi)
+# %%
+x = bool(2)
+print(x)
+# %%
+y = int('1.0')
+print(y)
+# %%
+li = ["ab", 3, 35]
+print(len(li))
+# %%
+tup = (2,3,"i")
+print(len(tup))
+print(len(str(tup)))
+print(tup)
+# %%

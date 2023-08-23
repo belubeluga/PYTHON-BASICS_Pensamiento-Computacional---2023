@@ -25,3 +25,29 @@ print(lista) #aplica str al contenido
 #1) diccionario
 #2) estructuras
 #3) corregir / justificar xq no funciona
+
+
+#%%
+x = input("")
+if float(x) < 0:
+    print("numero negativo")
+ 
+if (float(x) > 0 and len(x) > 3) or (float(x)<0 and len(x)>4):
+    print("no se hace")
+elif (float(x) > 0 and len(x) ==3) or (float(x)<0 and len(x)==4):
+    unidades = x[-1]
+    decenas = x[-2]
+    centenas = x[-3]
+    print(f'Unidades = {unidades}\nDecenas = {decenas}\nCentenas = {centenas}')
+elif (float(x) > 0 and len(x) ==2) or (float(x)<0 and len(x)==3):
+    unidades = x[-1]
+    decenas = x[-2]
+    centenas = 0
+    print(f'Unidades = {unidades}\nDecenas = {decenas}\nCentenas = {centenas}')
+else:
+    unidades = x[-1]
+    decenas = 0
+    centenas = 0
+    print(f'Unidades = {unidades}\nDecenas = {decenas}\nCentenas = {centenas}')
+      
+# %%
