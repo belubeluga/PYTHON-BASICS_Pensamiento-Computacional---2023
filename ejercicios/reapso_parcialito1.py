@@ -51,3 +51,43 @@ else:
     print(f'Unidades = {unidades}\nDecenas = {decenas}\nCentenas = {centenas}')
       
 # %%
+num = input("numero de 3 digitos")
+if len(num) <= 3:
+    unidades = int(num)%10
+    decenas = (int(num)//10)%10
+    centenas = (int(num) // 100) 
+    print(f'{centenas}\n{decenas}\n{unidades}')
+else: print("error")
+# %%
+#7)
+plata = int(input("$: "))
+billetes = 0
+if plata >= 500:
+    billetes += plata//500
+    plata %= 500
+if plata >= 200:
+    billetes += plata//200
+    plata %= 200
+if plata >= 100:
+    billetes += plata//100
+    plata %= 100
+if plata >= 50:
+    billetes += plata//50
+    plata %= 50
+if plata >= 20:
+    billetes += plata//20
+    plata %= 20
+if plata >= 10:
+    billetes += plata//10
+    plata %= 10
+if plata >= 5:
+    billetes += plata//5
+    plata %= 5
+print(billetes)
+
+
+
+
+
+
+# %%
