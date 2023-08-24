@@ -85,9 +85,59 @@ if plata >= 5:
     plata %= 5
 print(billetes)
 
+#errores:
+# sintacticos 
+# semanticos (de logico, el codigo corre pero no hace lo que yo quiero xq yo lo excribi mal)
+# ejecucion (excepciones)
 
 
 
 
+# %%
 
+#computable : algoritmo posible o no
+#tratable : q funcione en tiempo
+
+#%%
+horas = float(input())
+pxh=(float(input()))
+if horas <= 35:
+    salario = horas * pxh
+else:
+    salario = (35*pxh) + (horas-35)*(pxh*1.5)
+
+if salario <= 500:
+    impuestos = 0
+else:
+    if salario - 500 <= 400:
+        impuestos = (salario - 500)*0.25
+    else:
+        impuestos = (salario - 900)*0.45 + 0.25*400
+
+print(salario - impuestos)
+# %%
+x = 1
+y = 2
+z = x + y
+w = 3
+print(int(2 ** w ** w))
+print(int(2 ** (w ** w)))
+print(int((2 ** w) ** w))
+
+
+# %%
+a = b = "la puerta azul está abierta"
+print(f'{a}\n{b}')
+
+# %%
+(x,y,z) = (0.1, 25, 'azul')
+#%%
+x = 5
+respuesta = f'el resultado es {x}'
+respuesta
+# %%
+peras = 5
+manzanas = 7
+frutas = peras + manzanas
+print('Hay', frutas, 'frutas en total.')
 # %%

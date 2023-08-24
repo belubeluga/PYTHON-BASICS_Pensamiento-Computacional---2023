@@ -1,5 +1,16 @@
 #resolucion ejercicios
 #%%
+#1
+state = True
+print(not(state))
+#%%
+#3
+num = int(input())
+if num % 2 ==0:
+    print('par')
+else: print("impar")
+
+#%%
 #Condicionales/Decisiones (6)
 a = float(input("elija a: "))
 b = float(input("elija b: "))
@@ -62,7 +73,10 @@ c1 = int(input("elija la ordenada al origen de la recta 1: "))
 m2 = int(input("elija pendiente de la recta 2: "))
 c2 = int(input("elija la ordenada al origen de la recta 2: "))
 
-y = m1*x1 + c1
+y = c1 #cuando x = 0
+x = (y - c2)/m2
+
+y = m1*x + c1
 x = (y - c1)/m1
 y = m2*x + c2
 
@@ -81,6 +95,7 @@ if not(año%4):
             print(f'{año} es un año bisiesto')   
 else:
      print(f'{año} NO es un año bisiesto')
+
 
 # %%
 #Condicionales/Decisiones (10) 
@@ -181,13 +196,25 @@ if mes > 12:
 primavera = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 21
 if bisiesto:
     primavera += 1 
-if mes <= 9:
-    print(f'Faltan {primavera - (dias + dia)} dias para la primavera')
-elif mes > 9:
-    if bisiesto:
-        print(f'Faltan {366 - ((dias + dia) - primavera)} dias para la Primavera')
-    else: print(f'Faltan {365 - ((dias + dia) - primavera)} dias para la Primavera')
+aniosig = año + 1
+if not(aniosig%4):
+    if aniosig%100 != 0:
+        sigbisiesto = True
+    else:
+        if not(aniosig%400):
+            sigbisiesto = True  
+else:
+     sigbisiesto = False
 
+if dias + dia > primavera:
+    diasfaltan = primavera - (dias + dia)
+else:
+    if sigbisiesto:
+        diasfaltan = 366 - abs(primavera - (dias + dia)) 
+    else: 
+        diasfaltan = 365 - abs(primavera - (dias + dia)) 
+
+print(f'Faltan {diasfaltan} dias para la Primavera')
 print(fecha)
 
 #%%
@@ -407,4 +434,22 @@ dado = f'''
 # %%
 x = (1,2,3)
 print(x[1])
+# %%
+s = int(input(""))
+a = int(input())
+if s < 500 and a >= 10:
+    s *= 3
+elif s < 500 and a<10:
+    s *=2
+
+print(s)
+#%%
+clave = input ("clave: ")
+if len (clave) != 5:
+    print ("error")
+else:
+    clave_1 = input ("vuelva a ingresar la clave:. ")
+    if clave_1 == clave:
+        print ("Clave registrada")
+    else: print ("Clave incorrecta")
 # %%
