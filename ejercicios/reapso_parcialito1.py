@@ -141,3 +141,27 @@ manzanas = 7
 frutas = peras + manzanas
 print('Hay', frutas, 'frutas en total.')
 # %%
+materia1 = input("materia 1: ")
+nota1_m1 = float(input("nota 1, materia 1"))
+nota2_m1 = float(input("nota 2, materia 1"))
+nota3_m1 = float(input("nota 3, materia 1"))
+
+materia2 = input("materia 2: ")
+nota1_m2 = float(input("nota 1, materia 2"))
+nota2_m2 = float(input("nota 2, materia 2"))
+nota3_m2 = float(input("nota 3, materia 2"))
+
+lista_m1 = [nota1_m1, nota2_m1, nota3_m1]
+lista_m2 = [nota1_m2, nota2_m2, nota3_m2]
+promedio1 = sum(lista_m1)/len(lista_m1)
+promedio2 = sum(lista_m2)/len(lista_m2)
+notas = {materia1: promedio1,
+         materia2: promedio2}
+
+materia_a_consultar = input("ingrese que materia quiere consultar: ")
+if materia_a_consultar == materia1:
+    print(round(notas[materia1],2))
+elif materia_a_consultar == materia2:
+    print(round(notas[materia2],2))
+
+# %%

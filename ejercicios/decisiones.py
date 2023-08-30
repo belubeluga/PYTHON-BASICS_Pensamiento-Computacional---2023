@@ -448,8 +448,23 @@ clave = input ("clave: ")
 if len (clave) != 5:
     print ("error")
 else:
-    clave_1 = input ("vuelva a ingresar la clave:. ")
+    clave_1 = input ("vuelva a ingrlesar la clave:. ")
     if clave_1 == clave:
         print ("Clave registrada")
     else: print ("Clave incorrecta")
+# %%
+print("Hola","\rh")
+# %%
+i = input("")
+if i == "f" or i == "l":
+    print("yes")
+else: print("no")
+# %%
+print(0.1 +0.2)
+
+# %%
+print((233)%10)
+# %%
+dic = {1:3,4:5,6:4}
+print(min(dic))
 # %%
