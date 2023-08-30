@@ -369,3 +369,81 @@ print(len(tup))
 print(len(str(tup)))
 print(tup)
 # %%
+# CLASE 28/8
+
+
+# Argumentos por omision:
+def suma_geografica(r, n, a=1): #siempre el argumento x omision al FINAL
+    '''Compute a geometric sum of n terms, w/ coefficient a and ratio r
+    Argumentos:
+    r -- ratio
+    n -- terms to sum
+    a -- coefficient (default: 1)
+    (si no se define abajo el c, se toma c=1 por default)'''
+    total = 0
+    for i in range (0, n):
+        total = total + n + a * r ** i
+    return total
+def name(x, *arg2): #el '*' delante del argumento --> Multiples parametros
+    ''''''
+                    # arg es una TUPLA que guarda todos los parametros
+                    # ingresados en esa posicion
+def name(x, **arg2): #'**' permiten MULTIPLES PARAMETROS con NOMBRE EXPLICITO
+                    # se arma un DICCIONARIO dentro de la funcion
+    ''''''
+
+# TIPADO : hay lenguajes con TIPADO DINAMICO (ej python) o con TIPADO ESTATICO (C)
+#TYPE HINTS
+def nombre(arg: int)->int: #NO OBLIGA a que sea int, sino que sugiere
+    ''''''            #salida
+
+#%%
+# FUNCIONES LAMBDA
+# (funciones anonimas)
+#lambda argumentos : expresiones
+greet = lambda name: f"Hello, {name}"
+#puedo darle nombre tmb
+print((lambda name: f"Hello, {name}")("Pedro")) #definida y evaluada en 1 linea
+print((lambda a, b: a + b)(3, 5))
+# %%
+# Fail fast, return early
+    #probar errores al principio
+
+def make_merengue(huevos, azucar, batidora, bowl):
+    if not(huevos==4):
+        return "ERROR_HUEVOS"
+    if not(azucar == 170):
+        return "ERROR_BATIDORA"
+  #...
+#ver como optimizar con SINGLE ENTRY, SINGLE EXIT
+    # con ifs
+
+# MODULOS
+    #archivos python (xx.py)
+#import modulo1
+#import repaso_parcialito1
+#import practica2
+# y para despues acceder a las variables de esos modulos se usa
+# repaso_parcialito1.x (x: variable)
+#import modulo1
+#r = modulo1.get_radius #get_radius siendo funcion de modulo1
+#importar con un Alias
+#import modulo1 as mod
+# importar solo los elementos especificados
+#from modulo1 import pi, get_radius
+
+#MODULOS COMUNES:
+import math
+import random 
+#import pandas as pd
+
+#FUNCION MAIN
+def suma(a,b):
+    return a + b
+def main():
+    x = 2
+    y = 3
+    s = suma(x,y)
+
+if __name__ == "__main__":
+    main()
