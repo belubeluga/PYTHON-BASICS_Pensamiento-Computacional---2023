@@ -447,3 +447,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+#INDEXING
+#x = secuencia[int] lectura
+#secuencia[int] = x asignacion
+#SLICING
+nums = [1,2,3,4,5,6,7,8,9]
+some_nums = nums[2:5] #--> [3,4,5,6]
