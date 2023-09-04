@@ -1,5 +1,5 @@
-
-w =0.03 #variables
+#constantes
+w =0.03 
 r= 0.002
 a = 0
 c = 46
@@ -15,7 +15,7 @@ for t in range(0, N+1):
         ct = c - r*c*s
         if ct < 0: ct = 0 
         
-        st = total - round(at) - round(ct) #para resolver problema de redondeo
+        st = total - round(at) - round(ct) 
         if st < 0: st = 0
 
         a = at
@@ -23,4 +23,4 @@ for t in range(0, N+1):
         s = st
 
         valores_s +=[s] #agregar valores de s a la lista
-print(max(valores_s))
+print(max(valores_s)) #se imprime el maximo

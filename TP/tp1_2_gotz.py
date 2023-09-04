@@ -1,32 +1,33 @@
-
+#constantes
 w = 0
 N = 100
 a = 0
 c = 46
 s = 1
+ls = []
 total = 47
-r = 0.001 #0.001 = 1/1000 
-while c>=1: #se ejecutan "vueltas" mientras no se llegue a que todos los alumnos esten dormidos
-    r+=0.0001 #al comienzo de cada vuelta, aumento el valor de r
+
+for r in range (100): #para probar los diversos valores de r
+    rr = r/10000 #porque las iteraciones solo funcionan con int
     a = 0
     c = 46
-    s = 1  
-    for t in range(0,N+1):
-        at = a + w*s
-        if at < 0: at = 0 #mismo codigo de antes
+    s = 1 
+    for t in range(1, N+1): #para cada r, llegamos a los valores en tiempo N
+            at = a + w*s
+            if at < 0: at = 0 
 
-        ct = c - r*c*s
-        if ct < 0: ct = 0 
+            ct = c - rr*c*s
+            if ct < 0: ct = 0 
             
-        st = total - round(at) - round(ct) 
-        if st < 0: st = 0
+            st = total - round(at) - round(ct)
+            if st < 0: st = 0
 
-        a = at
-        c = ct
-        s = st
+            a = at
+            c = ct
+            s = st
 
-        if t == 100 and ct>=1: 
-            continue #mientras no todos esten dormidos, se repite el ciclo, no se llego al max
-        
+            if t == 100 and st<=46: #si en el tiempo 100 no todos estan dormidos
+                ls += [rr] #se agrega el rr valido a la lista
+      
 
-print(round(r,4)) #se imprime el valor de r, redondeado
+print(round(max(ls),4)) #se imprime el maximo valor de r, redondeado

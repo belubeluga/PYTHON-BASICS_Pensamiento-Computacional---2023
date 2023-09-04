@@ -59,7 +59,7 @@ mes, dias = ("enero", 31)
 nombre, apellido = ("James", "Durbin")
 x, y, z = [2.0, 1.5, 0.3]
 fecha, nombres = [("enero", 31), ("James", "Durbin")]
-a, b = b, a
+#a, b = b, a
 #%%
 def minimax(secuencia):
    minimo = min(secuencia)
@@ -105,3 +105,5 @@ str([1,2,(1,2,3)])
 tuple([1,2,(1,2,3)])
 list("hola") #--> ['h', 'o', 'l', 'a']
 # %%
+auto = {'nombre': input("nombre"),
+        "patente": int(input("patente"))}
