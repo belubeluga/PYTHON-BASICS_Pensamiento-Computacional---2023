@@ -6,7 +6,7 @@
 
 
 #SLICING
-# [start:stop: -step] --> generan una lista nueva
+# [start:stop: -step] --> generan una lista nueva --> el num de inicio se imprime, el de stop NO
 # [desde:hasta:paso]
 nums = [1,2,3,4,5,6,7,8,9]
 some_nums = nums[2:5] #--> [3,4,5,6]
@@ -21,12 +21,32 @@ palabra[4:1] = ''
 palabra[4:1:-1] = 'UPM'
 palabra[4::-1] = 'UPMOC'
 
+#%% ejercicios clase 5/9
+'''realizar una funcion que reciba una cadena 
+y devuelva True si la cadena es un palindromo
+y False en caso contrario'''
+def palindromo(txt: str) -> bool:
+    '''devuelve True si la cadena es un palindromo y False si no'''
+    return txt[-1::-1] == txt
+
+palabras = ["banana", "anana", "aca", "neuquen"]
+for palabra in palabras:
+    print(f'{palabra} {"es" if palindromo(palabra) else "no es"} palindroma')
+
+#%%
+'''realizar un programa que imprima los numeros enteros divisibles
+por 3 desde el cero hasta el numero que imprima el usuario'''
+limite = int(input("numero: "))
+div = []
+for i in range(limite, 0, -1):
+    if i%3 == 0:
+        div.append(i)
+print(div)
+#%%
 
 #MUTABILIDAD
 # listas --> MUTABLES
 # tuplas y cadenas --> NO MUTABLE
-#%%
-
 
 #ID
 s = 'hola'
@@ -52,14 +72,25 @@ print(n_impar)
 #[2, 4, 6, 8, 10]
 #[3, 5, 7, 9, 11]
 # %%
+lista = [num for num in range(8) if num%2==0]
+    #agrega elemento,
+            #num variable
+                    #rango y condicion
+#%%
+def f_lista(lista_a):
+    b = lista_a[::-1]
+    c = [num for num in lista_a if num%2 == 0]
+    d = [num**2 for num in lista_a]
+    return b,c,d
+#%%
 
-
-#DESEMPAQUETADO
-mes, dias = ("enero", 31)
+#DESEMPAQUETADO  
+mes, dias = ("enero", 31) #--> MISMA CANTIDAD
 nombre, apellido = ("James", "Durbin")
 x, y, z = [2.0, 1.5, 0.3]
 fecha, nombres = [("enero", 31), ("James", "Durbin")]
-#a, b = b, a
+a,b,c = (1,2,3)
+#no se puede desempaquetar numeros, si tuplas
 #%%
 def minimax(secuencia):
    minimo = min(secuencia)
@@ -79,7 +110,7 @@ for mes, dias in meses:
 #diciembre tiene 31 días.
 
 
-#ENUMERADOS
+#ENUMdERADOS
 doc_teoricas = ["Pato", "Nacho", "Débora"]
 print("¿Quién es el docente de tus teóricas?")
 for i, profe in enumerate(doc_teoricas, 1):
@@ -90,8 +121,8 @@ for i, profe in enumerate(doc_teoricas, 1):
 #3. Débora
 
 txt = 'cadena'
-for i,c in enumerate(txt,3):
-    print(i,c)
+for i,e in enumerate(txt,3): #3--> con q num empieza a enumerar
+    print(i,e)
 # 3 c 
 # 4 a 
 # 5 d 
@@ -209,7 +240,7 @@ def main():
     y = 5
     print("suma: ", lista_func[0](x,y))
     print("suma: ", lista_func[1](x,y))
-if __name__ == '__main__':
+#if __name__ == '__main__':
     
 
 # %%
