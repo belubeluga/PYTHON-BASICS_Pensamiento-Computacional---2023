@@ -107,3 +107,111 @@ list("hola") #--> ['h', 'o', 'l', 'a']
 # %%
 auto = {'nombre': input("nombre"),
         "patente": int(input("patente"))}
+
+# 4/9
+# INDEX
+#%% <scecuencia>.index(<elemento>) --> int
+cadena = "Hola Mundo"
+cadena.index('un') #-> 6
+# .index
+    #sirve para cualquier tipo de secuencia
+    # ValueError (se corta el programa) si no lo encuentra
+    #te busca la primera 'l' que encuentra
+# %%
+# FIND
+# .find() --> SOLO PARA STR
+    #no se corta si no lo encuentra
+cadena = "Hola Mundo"
+cadena.find('o') #-> 1
+# %%
+
+# SPLIT
+# <cadena>.split(<delimitador) -> list
+    #separa una cadena en listas de cadena
+"2022-03-01".split("-") #->['2022', '03', '01']
+    #por default () te pone cualquier caracter no imprimible (' ')
+        #se puede definir que separe HASTA 'x' vez
+# %%
+
+# JOIN
+#<delimitador>.join(<secuencia) --> str
+#los elementos tienen que ser STRINGS
+lista = ["H","o","l","a"]
+''.join(lista) #--> 'Hola'
+# %%
+
+# CASING
+#<cadena>.upper() --> <todo en mayusculas>
+"bazinga".upper() #--> 'BAZINGA'
+#<cadena>.lower() --> <todo en minusculas>
+# capitalize
+"belen".capitalize() #para 1 sola letra mayuscula (crea un str nuevo con la primera mayusc, y el resto todas minusc)
+# %%
+
+# PARA CHEQUEOS
+'Abc'.isalpha()
+'abc123'.isalnum()
+'1234'.isdecimal() #si <0 ('-') dice False y el '.' o coma --> False
+'ABC'.isupper()
+'abc'.islower
+#%%
+
+# MODIFICACIONES A LISTAS
+# <element>.funcion()
+listita = [1,2,3,4,6]
+print(listita)
+
+listita.append(7) #añade un elemento al final de la lista (se lo agrega como elemento de lista)
+print(listita)
+
+listita.remove(2) #elimina el elemento  cuyo valor es especificado
+print(listita)
+
+listita.insert(1,2) #.insert(posicion, elemento) inserta un elemento en la posicion especificada
+print(listita) 
+
+listita.pop(4) #--> devuelve un elemento en la posicion especificada y lo ELIMINA 
+print(listita)
+#.extend() #añade elementos de un ITERABLE al FINAL de la lista
+# %%
+
+# COPY / IDENTIDAD
+    #genero una lista nueva
+    #.copy .deepcopy()
+L = [1,2,3]
+
+La = L #--> MISMA LISTA, distintos nombres
+        #quedan encadenadas (borro algo de 1, se elimina de ambas)
+
+L2 = L.copy() #copia lista independientes
+# L==L2 --> True
+# L2 is L --> False
+L.append(4)
+
+print(L2, L) #[1, 2, 3] [1, 2, 3, 4]
+
+L3 = L[:] #slicing de todo --> te devuelve un elemento NUEVO
+# L == L3 --> True
+# L is L3 --> False
+
+#.deepcopy()
+
+# OJO --> Cuando paso listas x argumentos, 
+# si la comidifico en la funcion, SE MODIFICA EN EL MAIN (afuera)
+# %%
+def sum(a,b):
+    return a + b
+def rest(a,b):
+    return a - b
+lista_func = [sum, rest]
+def main():
+    x = 4
+    y = 5
+    print("suma: ", lista_func[0](x,y))
+    print("suma: ", lista_func[1](x,y))
+if __name__ == '__main__':
+    
+
+# %%
+ # FIND
+#.find --> funciona SOLO para cadenas
