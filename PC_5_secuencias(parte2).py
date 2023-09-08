@@ -110,16 +110,15 @@ for mes, dias in meses:
 #diciembre tiene 31 días.
 
 
-#ENUMERADOS
+#ENUMERATE
 doc_teoricas = ["Pato", "Nacho", "Débora"]
 print("¿Quién es el docente de tus teóricas?")
-for i, profe in enumerate(doc_teoricas, 1):
+for i, profe in enumerate(doc_teoricas, 1): #(ELEMENTO, INDICE)
    print(f"{i}. {profe}")
 #Quién es el docente de tus teóricas?
 #1. Pato
 #2. Nacho
 #3. Débora
-
 txt = 'cadena'
 for i,e in enumerate(txt,3): #3--> con q num empieza a enumerar
     print(i,e)

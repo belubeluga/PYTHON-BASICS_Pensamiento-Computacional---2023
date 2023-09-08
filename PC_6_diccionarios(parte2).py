@@ -39,3 +39,23 @@ for elemento, item in libro.items():
 
 #diccionarios POR COMPRENSION
 # {<new.key>:<new.value> for <item> in <iterable>}
+lista = ["diez", "veinte", "treinta"]
+d1 = {10*k:v for (k,v) in enumerate(lista, 1)} #-> {10: "diez", 20: "veinte", 30: "treinta"}
+d2 = {m:cadena.upper() for m,cadena in d1.items()} #-> {10: "DIEZ", 20: "VEINTE", 30: "TREINTA"}
+
+#DICCIONARIO DE FUNCIONES
+
+#%%
+'''Implemente un programa que solicite al usuario un texto 
+e imprima por pantalla una tabla con cada caracter presente en el texto 
+y la cantidad de veces que se repite. Debe ser case sensitive'''
+texto = input("Ingrese un texto: ")
+lista = []
+for caracter in texto:
+    if caracter.isalpha():
+        repeticiones_caracter = texto.count(caracter)
+        if caracter not in lista: 
+            print(f"{caracter} {repeticiones_caracter}")
+        lista+=caracter
+
+# %%
