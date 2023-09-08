@@ -110,7 +110,7 @@ for mes, dias in meses:
 #diciembre tiene 31 días.
 
 
-#ENUMdERADOS
+#ENUMERADOS
 doc_teoricas = ["Pato", "Nacho", "Débora"]
 print("¿Quién es el docente de tus teóricas?")
 for i, profe in enumerate(doc_teoricas, 1):
@@ -151,7 +151,7 @@ cadena.index('un') #-> 6
 # %%
 # FIND
 # .find() --> SOLO PARA STR
-    #no se corta si no lo encuentra
+    #no se corta si no lo encuentra (tira -1)
 cadena = "Hola Mundo"
 cadena.find('o') #-> 1
 # %%
@@ -162,6 +162,11 @@ cadena.find('o') #-> 1
 "2022-03-01".split("-") #->['2022', '03', '01']
     #por default () te pone cualquier caracter no imprimible (' ')
         #se puede definir que separe HASTA 'x' vez
+cadena = "Leyes de la fisica"
+x = cadena.split(maxsplit=2) #default separa por espacios
+y = cadena.split('s',maxsplit=2)
+print(x) #['Leyes', 'de', 'la fisica']
+print(y) #['Leye', ' de la fi', 'ica']
 # %%
 
 # JOIN
@@ -177,14 +182,16 @@ lista = ["H","o","l","a"]
 #<cadena>.lower() --> <todo en minusculas>
 # capitalize
 "belen".capitalize() #para 1 sola letra mayuscula (crea un str nuevo con la primera mayusc, y el resto todas minusc)
+"hOLA".swapcase()
 # %%
 
-# PARA CHEQUEOS
-'Abc'.isalpha()
-'abc123'.isalnum()
+# IS --> PARA CHEQUEOS
+'Abc'.isalpha() #--> devuelve num
+'abc123'.isalnum() 
 '1234'.isdecimal() #si <0 ('-') dice False y el '.' o coma --> False
-'ABC'.isupper()
-'abc'.islower
+'ABC'.isupper() 
+'abc'.islower() #OJO TODOS tienen que ser
+
 #%%
 
 # MODIFICACIONES A LISTAS
@@ -192,20 +199,33 @@ lista = ["H","o","l","a"]
 listita = [1,2,3,4,6]
 print(listita)
 
-listita.append(7) #añade un elemento al final de la lista (se lo agrega como elemento de lista)
-print(listita)
+listita.append([3,4]) #añade un elemento al final de la lista (se lo agrega como elemento de lista)
+#listita = [1,2,3,4,5,6,[3,4]]
+
+listita.extend([3,4])  #agrega C/elemento
+#listita = [1,2,3,4,5,6,3,4]
 
 listita.remove(2) #elimina el elemento  cuyo valor es especificado
-print(listita)
+#listita = [1,3,4,5,6]
+
+listita.clear()
+
+listita.reverse()
+#listita = [6,4,3,2,1]
+
+listita.sort()
+
+listita.count(2) #cuenta la cantidad de veces que aparece el elemento
+#1
 
 listita.insert(1,2) #.insert(posicion, elemento) inserta un elemento en la posicion especificada
-print(listita) 
+#listita = [2,1,2,3,4,5,6]
 
-listita.pop(4) #--> devuelve un elemento en la posicion especificada y lo ELIMINA 
-print(listita)
+listita.pop(4) #--> devuelve un elemento en la POSICION especificada y lo ELIMINA 
+#--> 4 (listita=[1,2,3,6])
 #.extend() #añade elementos de un ITERABLE al FINAL de la lista
-# %%
 
+#%%
 # COPY / IDENTIDAD
     #genero una lista nueva
     #.copy .deepcopy()
@@ -225,7 +245,7 @@ L3 = L[:] #slicing de todo --> te devuelve un elemento NUEVO
 # L == L3 --> True
 # L is L3 --> False
 
-#.deepcopy()
+#.deepcopy() (para copiar TODOS los elementos, no que queden con las referencias (atados a otros))
 
 # OJO --> Cuando paso listas x argumentos, 
 # si la comidifico en la funcion, SE MODIFICA EN EL MAIN (afuera)
@@ -246,3 +266,6 @@ def main():
 # %%
  # FIND
 #.find --> funciona SOLO para cadenas
+
+ord() #-->convierte valor a unicode
+chr() #-->viceversa
