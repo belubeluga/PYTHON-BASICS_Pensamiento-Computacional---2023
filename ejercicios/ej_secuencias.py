@@ -145,5 +145,6 @@ MAYUSC(cadena)
 '''escriba una funcion q reciba una oracion ingresada por el usuario y devuelva una lista (q haga lo del split)'''
 oracion = input("oracion: ")
 def separador(oracion:str)->list:
-    #
+    #hd
+    
 # %%
