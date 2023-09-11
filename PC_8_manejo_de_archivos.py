@@ -76,3 +76,21 @@ with open('nombre.txt', 'rt') as archivo: #archivo es el objeto
            linea = linea.rstrip('\n') #saco el \n del print
            print(f"{i}: {linea}")
 # %%
+# ESCRITURA DE ARCHIVOS DE TEXTO
+f = open('archivo.txt', 'w')
+f.write("cadena1\n") #salto de linea porque sino el cursor se queda ahi y sigue escribiendo desde alla
+f.write("cadena2\n")
+'''
+cadena1
+cadena2
+'''
+lista_str = ['lista\n', 'de\n', 'lineas\n'] #IMP EL \N
+f.writelines(lista_str) #Escribe en el archivo las cadenas pasadas como lista de strings (hay que agregar a mano '\n' al final). Es similar a invocar .write() múltiples vece
+
+#%%
+with open('numerar.py', 'wt') as dest:
+      dest.write("with open ('numerar.py','rt') as archivo:\n")
+      dest.write("    for i, linea in enumerate(archivo, 1):\n")
+      dest.write("        print(f'{i}: {linea}', end='')\n")
+
+# %%
