@@ -59,3 +59,37 @@ for caracter in texto:
         lista+=caracter
 
 # %%
+#.get(Edad) --> si no existe -> Error
+for x,y in d1.items():
+    '''imprime ambos, x:clave, y:valor'''
+#%%
+''''''
+timestamp = {'hora':1340,
+            'dia':12,
+            'mes':4,
+            'año': 2022}
+y = timestamp.get("año")
+print(timestamp)
+x = timestamp.pop('año')
+y = timestamp.keys()
+z = timestamp.items() #clave,valor
+print(timestamp)
+print(x) #2022 (clave)
+print(list(y)) #['hora', 'dia', 'mes']
+# %%
+'''Escribir una funcion que reciba una cadena 
+y devuelva un diccionario con la cantidad 
+de apariciones de cada palabra en la cadena'''
+def contar_palabras(txt:str):
+    '''cuenta palabras :)'''
+    palabras = txt.split()
+    dicc = {}
+    for palabra in palabras:
+        if palabra not in dicc:
+            dicc[palabra] = 0
+        dicc[palabra] += 1
+    return dicc    
+texto = 'El dia de hoy es un lindo dia de sol'
+print(contar_palabras(texto))
+# %%
+
