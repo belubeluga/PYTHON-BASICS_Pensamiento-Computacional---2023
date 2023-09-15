@@ -1,3 +1,77 @@
+#%% 1
+'''Corrija este código defectuoso para que imprima la longitud de un string:'''
+print(len("Esto es un texto"))
+
+#%% 2
+'''Completar la función count_A para cuente la cantidad de letras A 
+que se encuentran en un texto (y devuelva dicha cantidad). Complete el siguiente código:'''
+
+def count_A(the_string: str) -> int:
+    '''docstring'''
+    return the_string.count('A')
+aa = 'ALKLKALLAAA'
+count_A(aa)
+
+#%% 3
+'''Escriba una función count(s, character) que cuente cuántas veces 
+aparece el carácter character en la cadena s. Complete el siguiente código:'''
+
+def count(s: str, character: str) -> int:
+    contador = 0
+    for c in s:
+        if c == character:
+            contador += 1
+    return contador
+
+'''Escriba un programa que le pida al usuario un carácter y un texto y luego 
+muestre la cantidad de ocurrencias del carácter en el texto ingresado. 
+Por ejemplo, puede seguir la siguiente interfaz:
+texto: podemos ingresar una cadena relativamente larga y contar la cantidad de 
+ocurrencias de un carácter carácter: a
+> la cantidad de "a" en el texto es: 15'''
+caracter = input("caracter: ")
+texto = input("texto: ")
+print(f'la cantidad de {caracter} en el texto es: {count(texto, caracter)}')
+
+'''Escriba un programa que le pida al usuario un texto y dos caracters e indique 
+qué carácter tiene más ocurrencias. Por ejemplo, puede seguir la siguiente interfaz:
+texto: podemos ingresar una cadena relativamente larga y contar la cantidad de 
+ocurrencias de un carácter
+carácter 1: a
+carácter 2: e
+El texto tiene más "a" que "e".'''
+caracter2 = input("caracter 2: ")
+print(f'Caracter 1: {caracter}')
+print(f'Caracter 2: {caracter2}')
+if count(texto, caracter)>count(texto,caracter2): print(f'El texto tiene más {caracter} que {caracter2}.')
+elif count(texto, caracter)<count(texto,caracter2):print(f'El texto tiene más {caracter2} que {caracter}.')
+else: print(f'El texto tiene la misma cantidad de {caracter} y {caracter2}')
+#%% 4
+'''Escriba una función que tome una cadena de texto y retorne una nueva cadena 
+formada por la letra inicial, la letra del medio, y la letra final, de la cadena inicial.'''
+
+def shorten(s: str) -> str:
+    if len(s)<3: return s
+    else:
+        l1 = s[0]
+        lu = s[-1]
+        lm = s[int(len(s)/2)]
+        return l1+lm+lu
+
+shorten('code')
+
+#%% 5
+'''Una dirección IP (IPv4) es una cuarteto de números entre 0 y 255 (inclusive) 
+separados por '.', y es la dirección única de cada dispositivo conectado a una red, 
+como la dirección postal de una casa en una ciudad. Escribir una función que dada una 
+dirección IPv4 válida, devuelva una versión modificada de esa dirección IP, 
+a esta versión modificada la llamaremos 'IP con colmillos'. Una dirección IP 
+con colmillos reemplaza cada punto '.' de la dirección IP original con '[.]'.'''
+
+#def colmillos(IPv4):
+
+
+
 #%% ejercicio 7
 texto = "algo de texto para probar"
 largo_impresion = 5
@@ -144,7 +218,5 @@ MAYUSC(cadena)
 #ejercicios clase secuencias 6/9
 '''escriba una funcion q reciba una oracion ingresada por el usuario y devuelva una lista (q haga lo del split)'''
 oracion = input("oracion: ")
-def separador(oracion:str)->list:
+#def separador(oracion:str)->list:
     #hd
-    
-# %%
