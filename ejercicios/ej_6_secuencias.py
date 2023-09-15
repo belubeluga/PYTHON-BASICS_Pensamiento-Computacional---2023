@@ -68,9 +68,40 @@ dirección IPv4 válida, devuelva una versión modificada de esa dirección IP,
 a esta versión modificada la llamaremos 'IP con colmillos'. Una dirección IP 
 con colmillos reemplaza cada punto '.' de la dirección IP original con '[.]'.'''
 
-#def colmillos(IPv4):
+def colmillos(IPv4):
+    IP = IPv4.split('.')
+    return '[.]'.join(IP)
+IPv4 = input('IPv4: ')
+print(colmillos(IPv4))
 
+#%% 6
+'''Algunos tipos de piedras son joyas, y todas las joyas son piedras. 
+Vamos a representar cada piedra con un carácter, por ejemplo la 'a', 
+por lo que una cadena de caracteres representa un conjunto de piedras, 
+por ejemplo 'aaAb' es un conjunto de piedras. 
+Dada una cadena de caracteres que representa los tipos de piedras que son joyas, 
+y otra cadena de caracteres que representa las piedras que tienes, 
+quieres saber cuántas joyas tienes, es decir, cuántas de las piedras que tienes 
+son también joyas.
+Las letras distinguen entre mayúsculas y minúsculas, 
+por lo que 'a' se considera un tipo de piedra diferente de 'A'.'''
 
+def joyas(piedras, joyas)-> int:
+    '''     '''
+    contador = 0
+    for piedra in piedras:
+        if piedra in joyas:
+            contador+=1
+    return contador
+
+Piedras1 = 'aAAbbbb'
+joyas1 = 'aA'
+
+Piedras2 = 'ZZ'
+joyas2 = 'z'
+
+print(joyas(Piedras1,joyas1))
+print(joyas(Piedras2, joyas2))
 
 #%% ejercicio 7
 texto = "algo de texto para probar"
