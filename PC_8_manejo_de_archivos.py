@@ -43,7 +43,7 @@ while linea != '': #mientras no llegue al final
          # hacer algo con la línea
          print(f"Línea con {n} caracteres maximo: {linea}") #x default pone /n
          linea = archivo.readline(n)
-archivo.cloe() #guardo
+archivo.close() #guardo
 # %%
 
 # STRIP LSTRIP RSTRIP
