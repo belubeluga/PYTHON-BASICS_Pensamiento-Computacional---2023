@@ -208,7 +208,7 @@ funcion_tsv([
   ["Charles","Leclerc","Monaco","1997"]
 ])
 
-#%% 15
+#%% 15 TERMINAR!!!!!!!!
 
 '''Dado dos archivos en formato CSV, dinosaurs1.csv y dinosaurs2.csv, 
 escribir un programa que lea los dos archivos guardados en disco, 
@@ -216,14 +216,80 @@ y luego imprima los nombres de los dinosaurios bípedos,
 desde el más lento al más rápido.'''
 dino1 = open('dinasours1.csv')
 dino2 = open('dinasours2.csv')
+lista1 = [elemento.split(',') for elemento in list(dino1)]
 
+for i, linea in enumerate(lista1,1):
+    dic = {}
+    dic = {(str(lista1[0][0])+str(i)):linea[0],
+           (lista1[0][1]+str(i)):linea[1],
+           (lista1[0][2]+str(i)):linea[2],}
 
-
+print(dic)
+#print(lista1)
 g = 9.8 # gravity constant
 #velocity = ((list(dino2[1]) / list(dino1(1))) - 1) * math.sqrt(list(dino1(1)) * g)
 
 #%% 16
+'''Dado un archivo en formato CSV, que contiene canciones (nombre, duración, artista), 
+escribir un programa que lea el archivo e imprima por pantalla la lista con el 
+siguiente formato.
++----------------------------+------+-----------------+
+| Name                       | Time | Artist          |
++----------------------------+------+-----------------+
+| Candy Shop                 | 3:45 | 50 Cent         |
+| In Da Club                 | 3:13 | 50 Cent         |
+| What Up Gangsta            | 2:58 | 50 Cent         |
+| In The Night Of Wilderness | 5:26 | Blackmill       |
+| Wicked                     | 2:53 | Future          |
+| Cudi Montage               | 3:16 | KIDS SEE GHOSTS |
+| Cellular                   | 2:58 | King Krule      |
+| Pull Up                    | 3:35 | Playboi Carti   |
+| The Birthday Party         | 4:45 | The 1975        |
+| One                        | 4:36 | U2              |
++----------------------------+------+-----------------+     '''
+musica = open('musica.csv')
+lista_musica = [linea.rstrip().split(',') for linea in list(musica)] 
+    #rstrip cuando leo archivos x el \n                  lista de lineas
+    #y el split para tener lista de listas
+print('+----------------------------+------+-----------------+')
+print('| Name                       | Time | Artist          |')
+print('+----------------------------+------+-----------------+')
+for i,linea in enumerate(lista_musica,0):
+    print(f'| {lista_musica[i][0]}{(27-len(lista_musica[i][0]))*(" ")}| {lista_musica[i][1]}{(5-len(lista_musica[i][1]))*" "}| {lista_musica[i][2]}{(16-len(lista_musica[i][2]))*" "}|')
+print('+----------------------------+------+-----------------+')
 
+#%% 17 HACER!!!!
+'''Un archivo en formato JSON, es un archivo de texto, 
+pero que su contenido está escrito del siguiente modo:
+    {"id": 22264,
+    "name": "Jack",
+    "last_name": "Hunt",
+    "age": 38,
+    "children": false,
+    "siblings": "Jessica Hunt, Robin Hunt",
+    "ssn": "1234-99-0012"}
+Tiene el mismo formato que un diccionario de Python, 
+pero esta escrito en un archivo de texto.
+
+Escribir una función que lea el archivo en formato JSON, 
+y transforme el contenido a un diccionario de Python. 
+Imprimir el diccionario por pantalla.'''
+def JASON(nombreJSON:str)->dict:
+    texto = open(nombreJSON)
+    lineas = [linea.split() for linea in texto]#remove('\n')
+JASON('17.JSON')
+
+#%% 18
+'''Tenemos un archivo que contiene, en cada línea del mismo, 
+los siguientes datos separados por '\t': continente, país, ciudad, 
+y cantidad de habitantes.
+
+Escribir una función que lea el archivo y devuelva los datos 
+cargados en una lista.
+Escribir un programa que solicite al usuario el nombre de un 
+archivo como el descripto y una cantidad de habitantes y guarde, 
+en un nuevo archivo, los datos de todas las ciudades 
+que tengan más habitantes que los ingresados por el usuario.'''
 #%% pruebas
 
 def formato_csv(**categorias)->None: #  VER DIFERENCIA ENTRE * Y **
