@@ -115,7 +115,7 @@ def load_data(nombre:str):
     dic = {}
     for linea in archivo:
         elementos = linea.split(':')
-        dic[elementos[0]] = elementos[1] #agregar a diccionario
+        dic[elementos[0]] = elementos[1].strip() #agregar a diccionario
     archivo.close()
     return dic
 load_data('diccionario.txt')
@@ -258,7 +258,7 @@ for i,linea in enumerate(lista_musica,0):
     print(f'| {lista_musica[i][0]}{(27-len(lista_musica[i][0]))*(" ")}| {lista_musica[i][1]}{(5-len(lista_musica[i][1]))*" "}| {lista_musica[i][2]}{(16-len(lista_musica[i][2]))*" "}|')
 print('+----------------------------+------+-----------------+')
 
-#%% 17 HACER!!!!
+#%% 17 ?????? No lo puedo convertir a dict
 '''Un archivo en formato JSON, es un archivo de texto, 
 pero que su contenido está escrito del siguiente modo:
     {"id": 22264,
@@ -275,8 +275,11 @@ Escribir una función que lea el archivo en formato JSON,
 y transforme el contenido a un diccionario de Python. 
 Imprimir el diccionario por pantalla.'''
 def JASON(nombreJSON:str)->dict:
-    texto = open(nombreJSON)
-    lineas = [linea.split() for linea in texto]#remove('\n')
+    texto = open(nombreJSON).read().split('\n')
+    lista_linea = ''
+    for linea in texto:
+        lista_linea += linea.strip()
+    return dict(lista_linea)
 JASON('17.JSON')
 
 #%% 18
@@ -285,11 +288,121 @@ los siguientes datos separados por '\t': continente, país, ciudad,
 y cantidad de habitantes.
 
 Escribir una función que lea el archivo y devuelva los datos 
-cargados en una lista.
-Escribir un programa que solicite al usuario el nombre de un 
+cargados en una lista.'''
+
+def lectura_tab(archivo:str)->list:
+    with open(archivo) as f: #acordarse del strip abajo!!!!! por los \n
+        elementos = [linea.strip().split(maxsplit=3) for linea in f.readlines()]
+
+    return elementos
+'''Escribir un programa que solicite al usuario el nombre de un 
 archivo como el descripto y una cantidad de habitantes y guarde, 
 en un nuevo archivo, los datos de todas las ciudades 
 que tengan más habitantes que los ingresados por el usuario.'''
+nombre_archivo = input('nombre de archivo: ')
+cantidad_habitantes = int(input('cantidad_habitantes: '))
+lista = [linea for linea in lectura_tab(nombre_archivo) if int(linea[-1])>cantidad_habitantes]
+print(lista) #en vez de guardarlos en un nuevo archivo los imprime
+
+#%% 19
+'''Tenemos una colección de libros en un único archivo de texto. 
+Esta colección pertenece al mismo autor, y queremos escribir un 
+programa para conocer las palabras favoritas o, 
+al menos, las más utilizadas por esta persona.
+Para ello: escribir una función que reciba el nombre de un archivo 
+(que ya ha sido parcialmente procesado y sólo contiene oraciones, 
+sin signos de puntuación), lo lea, y devuelva un diccionario con 
+la cantidad de ocurrencias de cada palabra.'''
+
+def repeticiones(archivo:str):
+    with open(archivo) as f:
+        palabras = [palabra for palabra in f.read().split()]
+        dic = {palabra:(palabras.count(palabra)) for palabra in palabras}
+                            #lista.count(elemento)
+    return dic
+
+repeticiones('archivolibro.txt')
+#%% 19 b (como optimizar?????)
+'''escribir una función que recibe dicho diccionario y devuelve 
+las 10 (yo uso 3) palabras con mayor frecuencia (y sus ocurrencias).'''
+dictionary = {'hakuna': 1, 'matata': 4, 'hola': 1, 'si': 3, 'Y': 1, 'y': 4, 'h': 7}
+
+def muy_repe(diccionario:dict)->list:
+    '''     '''    
+    maximo = []
+    valores = list(diccionario.values())
+    while len(maximo) < 3:
+        maximo += [max(valores)] #valor maximo
+        valores.remove(maximo[-1])
+
+    maximos = [] #maximos en items
+    items = diccionario.items()
+    for tupla in items:
+        if tupla[1] in maximo:
+            maximos.append(tupla)
+    return maximos
+
+muy_repe(dictionary)
+#%% 19 c
+'''escribir una función que recibe el nombre de un archivo y el 
+resultado de la función anterior, y guarda cada palabra con su 
+cantidad de ocurrencias en un archivo de texto, un par 
+'palabra:ocurrencias' por línea.'''
+def pares_ocurrencias(lista:list)->None:
+    with open('archivonuevo_pares', 'x') as f:
+        for linea in lista:
+            f.write(f'{linea[0]}:{linea[1]}\n') #IMPORTANTE \N
+lista_de_listas = [('matata', 4), ('y', 4), ('h', 7)]
+pares_ocurrencias(lista_de_listas) 
+
+#%% 20
+'''Una casa tiene, entre otras cosas, aberturas, 
+entre las cuales nos interesan: ventanas, puertas y tragaluces. 
+Cada abertura tiene dos estados posibles, abierto o cerrado. 
+A nosotros nos interesa generar algún tipo de resumen que permita 
+conocer el estado general de la casa, es decir, 
+si está completamente cerrada o si hay alguna abertura abierta 
+(en cuyo caso querríamos saber a qué grupo o grupos pertenecen estas 
+aberturas).
+Se pide:
+escribir una función resumen_aberturas que, 
+a partir de un diccionario con la información de cada una de las 
+aberturas, nos permita generar un archivo de texto que indique 
+si la casa está completamente cerrada o no. Si la casa no está 
+cerrada, se debe agregar un listado de las aberturas abiertas. 
+Un True asociado a una clave del diccionario implica que la 
+abertura en cuestión (una clave del diccionario) está cerrada, 
+mientras que un False implica lo contrario.'''
+#ventanas, puertas, tragaluces
+#estado = 'abierto'
+
+def resumen_aberturas(diccionario:dict)->str:
+    '''     '''
+    elemento_estado = diccionario.items()
+    estados = [int(elemento[1]) for elemento in elemento_estado]
+    if sum(estados)<len(estados):
+        abiertos = [clave[0] for clave in elemento_estado if int(clave[1]) == 0]
+        texto = ''
+        for i in range (len(abiertos)):
+            texto += f'* {abiertos[i]}\n'
+        return f'Algo abierto.\n{texto}'
+    else: return 'cerrado!\n'
+
+casa1 = {'ventana': True,
+         'puerta': True,
+         'balcon': False}
+print(resumen_aberturas(casa1))
+
+casa2 = {'ventana': True,
+         'puerta': True,
+         'balcon': True}
+print(resumen_aberturas(casa2))
+
+casa3 = estado_casa = {'ventanas': True, 'puertas': True, 'tragaluces': True}
+print(resumen_aberturas(casa3))
+
+casa4 = estado_casa = {'ventanas': False, 'puertas': True, 'tragaluces': False}
+print(resumen_aberturas(casa4))
 #%% pruebas
 
 def formato_csv(**categorias)->None: #  VER DIFERENCIA ENTRE * Y **
@@ -299,4 +412,12 @@ def formato_csv(**categorias)->None: #  VER DIFERENCIA ENTRE * Y **
         dic[key] = value
     return dic
 formato_csv(categoria='juegos', ganador='yo')
+# %%
+dict({"id": 22264,
+"name": "Jack",
+"last_name": "Hunt",
+"age": 38,
+"children": False,
+"siblings": "Jessica Hunt, Robin Hunt",
+"ssn": "1234-99-0012"})
 # %%
