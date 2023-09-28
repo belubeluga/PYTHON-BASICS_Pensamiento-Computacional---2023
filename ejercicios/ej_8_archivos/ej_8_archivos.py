@@ -141,9 +141,15 @@ def sed(archivo:str, cadena1:str, cadena2:str): #cadena es string???
 
     Lectura = open(archivo) #solo para leer
     if str(cadena1) in Lectura.read(): #STR!!! SI BUSCO QUE ALGO ADENTRO DEL ARCHIVO 
+        texto = [linea for linea in list(Lectura.read())]
         Lectura.close()
         Archivo = open(archivo, 'w') #xq aca quiero que escriba desde el principio borrando todo, habiendolo leido antes
-        Archivo.write(str(cadena2))
+        
+        posicion = texto.find(cadena1)
+        texto.pop(cadena1)
+        texto.insert(posicion, cadena2)
+        for linea in texto:
+            Archivo.write(linea)
         Archivo.close()
 
 diccionario = {'hola':1,
@@ -196,39 +202,63 @@ Escribir una función que reciba la información que se quiere escribir en un ar
 en formato TSV. Esta información tiene que estar estructurada en una secuencia de secuencias.
 '''
 
-def funcion_tsv(categorias:list)->None:
-    with open('archivonuevo.tsv','x') as f:
+def funcion_tsv(archivo,categorias:list)->None:
+    with open(archivo,'w') as f:
         for lista in categorias:
-            f.write(f"{','.join(lista)}\n") #transformarlo en lista!!!
+            f.write('\t'.join(lista)+'\n') #transformarlo en lista!!!
 
-funcion_tsv([
+funcion_tsv('archivonuevo.tsv',[
   ["First Name","Last Name","Country","Date of Birth"],
   ["Lewis","Hamilton","United Kingdom","1985"],
   ["Max","Verstappen","Belgium","1997"],
   ["Charles","Leclerc","Monaco","1997"]
 ])
 
-#%% 15 TERMINAR!!!!!!!!
+#%% 15 
 
 '''Dado dos archivos en formato CSV, dinosaurs1.csv y dinosaurs2.csv, 
 escribir un programa que lea los dos archivos guardados en disco, 
 y luego imprima los nombres de los dinosaurios bípedos, 
 desde el más lento al más rápido.'''
-dino1 = open('dinasours1.csv')
-dino2 = open('dinasours2.csv')
-lista1 = [elemento.split(',') for elemento in list(dino1)]
+def calculate_speed(stride_length:float,leg_length:float)->float:
+    '''
+    Calcula la velocidad de un dinosaurio.
+    
+    Args:
+        stride_length: zancada
+        leg_length: largo de la pierna
 
-for i, linea in enumerate(lista1,1):
-    dic = {}
-    dic = {(str(lista1[0][0])+str(i)):linea[0],
-           (lista1[0][1]+str(i)):linea[1],
-           (lista1[0][2]+str(i)):linea[2],}
-
-print(dic)
+    Returns:
+        La velocidad
+    '''
+    g = 9.8 # gravity constant
+    velocity = ((stride_length / leg_length)) * math.sqrt(leg_length * g)
+    return velocity
+dinosaurs = {}
+with open('dinasours1.csv') as f1:
+    f1.readline() #para saltear la primera linea NAME,LEG_LENTH...
+    for linea in f1:
+        name,leg_length,diet = linea.strip().split(',')
+        dinosaurs[name] = {'leg_length':leg_length, 'diet':diet}
+with open('dinasours2.csv') as f2:
+    f2.readline() #para saltear la primera linea NAME,LEG_LENTH...
+    for linea in f2:
+        name,stride_length,stance = linea.strip().split(',')
+        if name in dinosaurs:
+            dinosaurs[name] |= {'leg_length':float(stride_length), 'stance':stance}
+        else: dinosaurs[name] = {'leg_length':float(stride_length), 'stance':stance}
+bipedos = {}
+for dinosaur in dinosaurs:
+    if 'stride_length' in dinosaurs[dinosaur] and 'leg_length' in dinosaurs[dinosaur]:
+        if dinosaurs[dinosaur]['stance'] == 'bipedal':
+            bipedos[dinosaur] = calculate_speed(dinosaur['stride_length'],dinosaur['leglength'])
 #print(lista1)
-g = 9.8 # gravity constant
-#velocity = ((list(dino2[1]) / list(dino1(1))) - 1) * math.sqrt(list(dino1(1)) * g)
 
+lista = [(velocidad,nombre) for velocidad,nombre in bipedos.items()]
+lista.sort(reverse=True)
+
+for dino in lista:
+    print(dino[1])
 #%% 16
 '''Dado un archivo en formato CSV, que contiene canciones (nombre, duración, artista), 
 escribir un programa que lea el archivo e imprima por pantalla la lista con el 
@@ -258,7 +288,7 @@ for i,linea in enumerate(lista_musica,0):
     print(f'| {lista_musica[i][0]}{(27-len(lista_musica[i][0]))*(" ")}| {lista_musica[i][1]}{(5-len(lista_musica[i][1]))*" "}| {lista_musica[i][2]}{(16-len(lista_musica[i][2]))*" "}|')
 print('+----------------------------+------+-----------------+')
 
-#%% 17 ?????? No lo puedo convertir a dict
+#%% 17 HACER ?????? No lo puedo convertir a dict
 '''Un archivo en formato JSON, es un archivo de texto, 
 pero que su contenido está escrito del siguiente modo:
     {"id": 22264,
@@ -274,12 +304,15 @@ pero esta escrito en un archivo de texto.
 Escribir una función que lea el archivo en formato JSON, 
 y transforme el contenido a un diccionario de Python. 
 Imprimir el diccionario por pantalla.'''
+
 def JASON(nombreJSON:str)->dict:
     texto = open(nombreJSON).read().split('\n')
     lista_linea = ''
     for linea in texto:
         lista_linea += linea.strip()
-    return dict(lista_linea)
+    return dict(lista_linea) #ValueError: dictionary update sequence element #0 has length 1; 2 is required
+#lista_linea me devuelve: '{"id": 22264,"name": "Jack","last_name": "Hunt","age": 38,"children": false,"siblings": "Jessica Hunt, Robin Hunt","ssn": "1234-99-0012"}'
+#ya todo formateado para ser diccionario, pero aun asi no lo puedo convertir (si copio)
 JASON('17.JSON')
 
 #%% 18
@@ -322,7 +355,7 @@ def repeticiones(archivo:str):
     return dic
 
 repeticiones('archivolibro.txt')
-#%% 19 b (como optimizar?????)
+#%% 19 b -> puedo optimizar con sort
 '''escribir una función que recibe dicho diccionario y devuelve 
 las 10 (yo uso 3) palabras con mayor frecuencia (y sus ocurrencias).'''
 dictionary = {'hakuna': 1, 'matata': 4, 'hola': 1, 'si': 3, 'Y': 1, 'y': 4, 'h': 7}

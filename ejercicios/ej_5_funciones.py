@@ -13,13 +13,17 @@ print(potencia(x))
 '''Escriba una función llamada sumador que recibe dos argumentos 
 y devuelva su suma. Luego, ejecute pruebas con distintos tipos de 
 datos (dos strings, dos en punto flotante, un int y un str, etc.).'''
+
 def sumador(x:int, y:int)->int:
     'recibidos dos numeros (x,y), te devuelve su suma'
     return x + y
-a = int(input("num1: "))
-b = int(input("num2: "))
-print(sumador(a,b))
+def main():
+    a = int(input("num1: "))
+    b = int(input("num2: "))
+    print(sumador(a,b))
 
+if __name__=='__main__':
+    main()
 # %% 4
 def multiply(a, b):
     return a * b
