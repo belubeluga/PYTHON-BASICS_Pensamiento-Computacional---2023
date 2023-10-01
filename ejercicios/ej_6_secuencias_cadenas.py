@@ -315,7 +315,7 @@ tienen un solapamiento máximo de 5 caracteres:
                     TACCAGTCTATGTCATCCAGGGTAGCTGTTTGATTGTCCC
 CGAACGGAGAAAGTTAGCATTCCCAGTTGTCGGGTCTACG
                       ^^^^^'''
-def solapamiento(cadena1:str,cadena2:str)->int:
+def solapamiento(cadena1:str,cadena2:str)->tuple:
 
     coincidencia = ''
     for i1 in range(len(cadena1)):
@@ -517,8 +517,56 @@ def MAYUSC(cadena):
     return ''.join(lista)
 MAYUSC(cadena)
 # %% EJERCICIOS CLASE DE PROBLEMAS
+
 #ejercicios clase secuencias 6/9
 '''escriba una funcion q reciba una oracion ingresada por el usuario y devuelva una lista (q haga lo del split)'''
 oracion = input("oracion: ")
 #def separador(oracion:str)->list:
     #hd
+
+#%%
+def print_names2(people):
+    """Print a list of people's names, which each person's name
+       is itself a list of names (first name, second name etc)
+    """
+    
+    count = 0
+    while count < len(people):
+        to_print = ""
+        count2 = 0
+        while count2 < len(people[count]):
+            to_print += people[count][count2]+' '
+            count2 +=1
+        count +=1
+        print(to_print)
+print_names2([['John', 'Smith'], ['Mary', 'Keyes'], ['Jane', 'Doe']])
+# %%
+puntaje=[0,0]
+matchpoint = 0
+while matchpoint == 0:
+    entrada = int(input("jugador que gano: 1/2"))
+    puntaje[entrada-1] += 1
+    print(puntaje[0],puntaje[1])
+    if puntaje[0]==4 or puntaje[1]==4:
+        matchpoint += 1
+        print(puntaje[0],puntaje[1])
+while matchpoint == 1:
+    if (puntaje[0]-puntaje[1])%1 == 0:
+        entrada = int(input("jugador que gano: 1/2"))
+        puntaje[entrada-1] += 1
+    elif (puntaje[0]-puntaje[1])%1 > 0:
+        entrada = int(input("jugador que gano: 1/2"))
+        puntaje[entrada-1] += 1
+        matchpoint +=1
+if matchpoint == 2:
+    print(f'Ganador: jugador {puntaje.find(max(puntaje))+1}')
+        
+
+#%%
+
+# %%
+ppp = [1,2]
+print(ppp[0],ppp[1])
+# %%
+-3%4
+# %%

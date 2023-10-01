@@ -180,13 +180,17 @@ Ejemplo:
 
 def formato_csv(*categorias:list)->None: #  VER DIFERENCIA ENTRE * Y **
     ''' '''         #*algo devuelve tuplas (**diccionarios)
-    with open('archivonuevo.csv','x') as f:
+    with open('archivonuevo.csv','w') as f:
         for lista in list(categorias):
             #for elemento in lista:
                 #general.append(str(elemento))
                 f.write(f"{','.join(lista)}\n") #OJO COMO FORMULAR XQ EL CURSOR NO HACE ENTER SOLO
             
-formato_csv(['categoria 1', 'ganador'],['1','2'])
+formato_csv(
+  ["First Name","Last Name","Country","Year of Birth"],
+  ["Emanuel","Ginobili","Argentina","1977"],
+  ["Donald","Trump","USA","1946"],
+  ["Carl","Gauss","Germany","1855"])
 
 #%% 14
 '''Un archivo TSV (Tab Separated Value) es un archivo, similar al CSV, 

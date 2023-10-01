@@ -81,5 +81,15 @@ print(quiz(pregunta))
 rta_ingresada = quiz(pregunta)
 if rta_ingresada == pregunta['respuesta']:
     print('Correcto')
-else: print('Incorrecto')
+else: print('Incorrecto')''''''
+# %%
+def contandoMinas(campo):
+    linea = len(campo)/2
+    campo1 = campo[:len(campo)/2:]
+    campo2 = campo[len(campo)/2::]
+    for i1,elemento in enumerate(campo1):
+        campo1[i1]=sum([-1 in campo1[i1-1], -1 in campo1[i1+1], -1 in campo2[i2-1],-1 in campo2[i2],-1 in campo2[i2+1]])
+    for i2,elemento in enumerate(campo2):   
+        campo1[i2]=sum([-1 in campo1[i2-1], -1 in campo1[i2+1], -1 in campo2[i1-1],-1 in campo2[i1],-1 in campo2[i1+1]])
+    return campo1+campo2
 # %%
