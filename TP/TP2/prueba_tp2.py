@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 img = Image.open("TP/TP2/foto_prueba.png")
 img_np = np.array(img)
-img.show(title=None)
+print(img_np)
+#img.show(title=None)
 '''for i in range(480):
     for j in range(512):
         r = img_np[i][j][0]
@@ -15,12 +16,12 @@ img.show(title=None)
 ancho,alto=img.size
 print(f'Ancho: {ancho}')
 print(f'Alto: {alto}')'''
-tamaño = (200,200)
-img3 = img.resize(tamaño)
-img4 = img.copy()
-img4.thumbnail(tamaño)
-plt.imshow(img3)
-img4.show()
+#tamaño = (200,200)
+#img3 = img.resize(tamaño)
+#img4 = img.copy()
+#img4.thumbnail(tamaño)
+#plt.imshow(img3)
+#img4.show()
 
 #print(img.format, img.size, img.mode)
 #print(img_np)
