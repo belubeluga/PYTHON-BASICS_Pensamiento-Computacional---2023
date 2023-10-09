@@ -1,5 +1,4 @@
-#%% CLASE 4/8
-# clase 4/8
+#-------------------- PYTHON BASICS -------------------- 4/8
 
 # TIPOS DE DATO
     # INT (enteros)

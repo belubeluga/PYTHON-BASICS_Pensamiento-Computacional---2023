@@ -1,4 +1,6 @@
-# OPERADORES LÓGICOS
+#-------------------- OPERADORES Y CONDICIONALES --------------------
+
+#-------------------- OPERADORES LOGICOS --------------------
    #OPERACIONES UNARIAS X(F) NOT(T) // X(T) NOT(F)
    #OPERACIONES BINARIAS X() Y() AND() OR() (ver presentacion)
     #Operaciones binarias <expresion> and <expresion> // <expresion> or <expresion>
@@ -48,6 +50,7 @@ level = 5
 # CHEQUEO
     # (cantidad != 0) and (suma / cantidad < minimo)
 
+#-------------------- CONDICIONALES --------------------
 
 # CONDICIONALES
     # if
