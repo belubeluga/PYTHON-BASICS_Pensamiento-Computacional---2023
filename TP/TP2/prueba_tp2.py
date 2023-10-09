@@ -52,3 +52,13 @@ img.save("out.png")
 
 #usar forula para normalizar despues de cada convolucion que hagamos!!!
 #CANAL TRANSPARENCIA: RGB Alpha 255 todo transparente, 0 todo opaco (no modificar!!!)
+
+
+#NDARRAYS
+#A[:,0]
+#A[0,:]
+
+#A[:,0,:]
+# [fila, columna, canales]
+
+#[[[][]]]

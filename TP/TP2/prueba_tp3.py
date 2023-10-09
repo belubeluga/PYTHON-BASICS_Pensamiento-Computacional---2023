@@ -15,4 +15,5 @@ def solo_rojos(imagen:str):
             b = img_np[i][j][2]
             g = 0
             b = 0
-    return img_np, plt.imshow(img_np)
+    img_nueva = Image.fromarray(img_np.astype('unit8'))
+    return img_np, img_nueva
