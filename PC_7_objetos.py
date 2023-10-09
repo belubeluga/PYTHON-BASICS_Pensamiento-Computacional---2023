@@ -1,4 +1,4 @@
-#8/9 -- No entra en parcial
+#-------------------- OBJETOS -------------------- 8/9
 
 #OBJETOS : instancia particular de una CLASE
     #tipo

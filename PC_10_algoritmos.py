@@ -47,4 +47,14 @@ def buscar(lista:list, target) -> int:
         # si target < medio: derecha = medio -1
 
 
-        
+# COMPLEJIDAD:
+''' Analisis para T(N)
+    k: largo de secuencia
+    expresar k en funcion de N:
+        N = 2^k ---> k = log2(N) '''
+    #       T(N) --directamente proporcional--> log(N)
+
+
+#-------------------- ALGORITMOS DE ORDENAMIENTO --------------------
+#notacion Big-O 
+    #costo temporal de nuestro algoritmo T(N)

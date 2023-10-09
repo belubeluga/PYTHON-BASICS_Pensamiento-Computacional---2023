@@ -1,7 +1,7 @@
-#%% CLASE 11/8
-# clase 11/8
+#-------------------- INTRO SECUENCIAS Y DICCIONARIOS -------------------- 11/8
 
-# SECUENTCIAS (varios elementos con orden)
+#-------------------- SECUENCIAS --------------------
+# SECUENTCIAS: (varios elementos con orden)
 
 # CADENAS 
    # str "elementos son caracteres" // inmutable
@@ -64,16 +64,17 @@ print(L3[1])
 print(L3[1][2]) # acceder al elemento 1, luego al elemento 2 de la sublista
 print(L3[2][2])
 
-# KEY-VALUE
-   # key = clave para acceder, no pueden repetirse
-   #  value = pueden ser cualquier cosa y repetidos
-         #recomendado = NO usar float
+#-------------------- DICCIONARIOS --------------------
 
 # DICCIONARIO
    #  tipo = dict
    #  coleccion de elementps, pares key-value
 d = {"clave1" : 3, "clave2": "A5", "clave3": (1,2)}
 
+# KEY-VALUE
+   # key = clave para acceder, no pueden repetirse
+   #  value = pueden ser cualquier cosa y repetidos
+         #recomendado = NO usar float
 
 d1 = {10:[2,3,4], 15:[1,3], 23:[0,8,2,1]} #claves=int
 d2 = {'Pais':'Argentina', #claves y values=str

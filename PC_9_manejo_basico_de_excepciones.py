@@ -1,10 +1,12 @@
+#-------------------- MANEJO BASICO DE EXCEPCIONES --------------------
+
 # ERRORES
 #error de sintaxis --> mensaje de error
 #error semantico --> no genera excepcion
 #error de ejecucion --> genera excepcion
 
+# TRY
 #para que no se corte el programa:
-    # TRY
 try:
     '''lo q puede llegar a cortar el programa'''
 except:

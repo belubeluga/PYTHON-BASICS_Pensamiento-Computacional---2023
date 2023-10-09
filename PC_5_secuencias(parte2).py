@@ -1,4 +1,4 @@
-# 1/9 viernes
+#-------------------- SECUENCIAS -------------------- 1/9 
 
 #INDEXING
 #x = secuencia[int] lectura
@@ -192,6 +192,8 @@ lista = ["H","o","l","a"]
 'abc'.islower() #OJO TODOS tienen que ser
 
 #%%
+
+#-------------------- LISTAS --------------------
 
 # MODIFICACIONES A LISTAS
 # <element>.funcion()

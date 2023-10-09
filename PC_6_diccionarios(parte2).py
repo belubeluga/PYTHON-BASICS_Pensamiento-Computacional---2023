@@ -1,4 +1,4 @@
-#8/9
+#-------------------- DICCIONARIOS 2 -------------------- 8/9
 
 # DICCIONARIOS
     #las claves pueden ser CUALQUIER COSA que sea INMUTABLE (xq tiene que ser unica)
@@ -76,6 +76,7 @@ z = timestamp.items() #clave,valor
 print(timestamp)
 print(x) #2022 (clave)
 print(list(y)) #['hora', 'dia', 'mes']
+
 # %%
 '''Escribir una funcion que reciba una cadena 
 y devuelva un diccionario con la cantidad 
