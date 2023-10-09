@@ -58,3 +58,31 @@ def buscar(lista:list, target) -> int:
 #-------------------- ALGORITMOS DE ORDENAMIENTO --------------------
 #notacion Big-O 
     #costo temporal de nuestro algoritmo T(N)
+
+#PROPIEDADES: se suma el Big-O del peor caso
+
+'''     Orden         Nombre
+        -----------------------
+        O(1)       |  constante
+        O(log n)   |  logarítmica
+        O(n)       |  lineal
+        O(n log n) |  casi lineal
+        O(n2)      |  cuadrática
+        O(n3)      |  cúbica
+        O(an)      |  exponencial
+        O(n!)      |  factorial      '''
+
+#VER EJEMPLOS!!!!!
+n = input()
+j=0
+
+if n%2==0:      #complejidad = O(1)
+    for i in range(n):
+        print('par')
+    else:
+        print('impar')
+
+for i in range(n):  #complejidad = O(n)
+    if i%2==0:
+        j += 2
+    print(i,j)
