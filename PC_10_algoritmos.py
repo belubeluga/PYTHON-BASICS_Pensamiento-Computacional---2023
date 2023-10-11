@@ -120,7 +120,7 @@ lista = [5,6,2,4,1,3]
 n = len(lista)
 lista_nueva = []   
 #ORDENAMIENTO POR SELECCION
-for j in range(0,n): #(n-2 incluido) xq el ultimo no lo ordeno 
+for j in range(0,n-1): #(n-2 incluido) xq el ultimo no lo ordeno 
     #for k in range(j,n):#(n-1 incluido) k indica la sublista ->  complejidad =O(n**2) (xq depende del anterior)
         #chequear y guardar MIN de sublista
         #intercambiar minimo con inicio de lista sin ordenar -> complejidad = O(1)
@@ -128,8 +128,46 @@ for j in range(0,n): #(n-2 incluido) xq el ultimo no lo ordeno
     lista_nueva+=[minimo]
     lista.remove(minimo)
 #print(lista_nueva)
+#%% implementacion codigo por seleccion
+def selection_sort(lista):
+    for j in range(len(lista)-1):
+        i_minimo = j
+        for k in range(j, len(lista)):
+            if lista[k]<lista[i_minimo]:
+                i_minimo = k
+            k = j
+        lista[i_minimo],lista[j] = lista[j],lista[i_minimo]    
 
+lista = [4,5,8,72,3]
+selection_sort(lista)
+lista
+#%%
 #ORDENAMIENTO POR BURBUJEO
+#implementacion bubble sort
+def bubble_sort(lista):
+    for j in range(1,len(lista)):
+        for k in range(1, len(lista)-j+1):
+            if lista[k]<lista[k-1]:
+                lista[k-1],lista[k]=lista[k],lista[k-1]
+lista = [4,5,8,72,3]
+bubble_sort(lista)
+lista
+#%%
+#INSERTION SORT
+#%% implementacion algoritmo de insercion con lista de numeros
+def insertion_sort(lista):
+    for j in range(1,len(lista)):
+        actual = lista[j]
+        k = j
+        while k > 0 and (lista[k-1]>actual):
+            lista[k] = lista[k-1]
+            k = k-1
+        lista[k] = actual
+
+lista = [4,5,8,72,3]
+insertion_sort(lista)
+print(lista)
+#%%
 
 
 # %% Problema 1
@@ -175,3 +213,19 @@ indice_numero = busqueda_corte(5, lista)
 indice_numero = busqueda_corte(8, lista)
 #print(indice_numero)
 
+#%% ejercicio 2 clase tutorial
+
+def ordenar(lista,campo):
+    if campo.lower() == 'puntos':
+        index = 1
+    elif campo.lower() == 'nombre':
+        index = 0
+    for j in range(1,len(lista)):
+        for k in range(1, len(lista)-j+1):
+            if lista[k][index]<lista[k-1][index]:
+                lista[k-1],lista[k]=lista[k],lista[k-1]
+
+lista = [['Mara', 47],['Matias',16],['Ines',14],['Tomas',12],['Joaquin',8],['Sebastian',48],['Belen',18]]
+ordenar(lista,'Puntos')
+lista
+#%%
