@@ -21,7 +21,7 @@ def convolucion(imagen_path, kernel):
     # para la convolución
     for i in range(alto_imagen):
         for j in range(ancho_imagen):
-            submatriz = imagen_extendida[i:filak+i:][j:colk+j:] #creo submatriz del tamaño del kernel 
+            submatriz = imagen_extendida[i:i+filak, j:j+colk] #creo submatriz del tamaño del kernel 
             for elemento in range(len(submatriz)):
                 if imagen.ndim == 3:   # Imagen rgb
                     for color in range(3):
@@ -36,3 +36,4 @@ kernel=np.array([[-1,-2,11],[0,0,0],[1,2,1]])
 imagen=(('TP/TP2/baboon.png'))
 
 resultado = convolucion(imagen, kernel)
+print(resultado)
