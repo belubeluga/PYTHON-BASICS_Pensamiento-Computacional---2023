@@ -238,3 +238,10 @@ if __name__ == "__main__":
     main()
 
 
+#%%
+def promedio(num_1,num_2):
+    return (num_1+num_2)/2
+promedio1 = promedio(6,8)
+print(promedio1)
+print(promedio(16,25))
+# %%

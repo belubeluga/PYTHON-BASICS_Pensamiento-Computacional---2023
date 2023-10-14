@@ -18,7 +18,7 @@ def convolucion(imagen_path, kernel):
         alto_imagen, ancho_imagen = imagen.shape[:2]
     except:
         alto_imagen, ancho_imagen = imagen.size
-
+        
     #tamaños kernel
     filak, colk = kernel.shape
     filas_a_agregar = (filak - 1) // 2
@@ -28,19 +28,22 @@ def convolucion(imagen_path, kernel):
     if imagen.ndim == 3:
         array0 = np.zeros((alto_imagen, ancho_imagen, imagen.shape[2]), dtype=np.int64)
         imagen_extendida = np.pad(imagen, ((filas_a_agregar, filas_a_agregar), (columnas_a_agregar, columnas_a_agregar), (0, 0)), mode='edge')
+
     else: 
         array0 = np.zeros((alto_imagen, ancho_imagen), dtype=np.int64)
         imagen_extendida = np.pad(imagen, ((filas_a_agregar, filas_a_agregar), (columnas_a_agregar, columnas_a_agregar)), mode='edge')
 
-    
+
     # para la convolución
     for i in range(alto_imagen):
         for j in range(ancho_imagen):
             submatriz = imagen_extendida[i:i+filak, j:j+colk]
             if dimension == 3:
-                for color in range(3):
-                    array0[i, j, color] = np.sum(submatriz[:, :, color] * kernel)
-            else: array0[i, j] = np.sum(submatriz[:, :,] * kernel)
+                for color in range(len(array0[i,j])):
+                    if color < 3:
+                        array0[i, j, color] = np.sum(submatriz[:, :, color] * kernel)
+                    else: array0[i, j, color] = (submatriz[filas_a_agregar, columnas_a_agregar, color])
+            else: array0[i, j] = np.sum(submatriz * kernel)
 
     return array0
 
@@ -63,7 +66,7 @@ def normalizar(imagen):
 
 def main():
     kernel=np.array([[-1,-2,11],[0,0,0],[1,2,1]])
-    imagen=(('TP/TP2/truck.bmp'))
+    imagen=(('TP/TP2/baboon.png'))
     kernel_identidad=np.array([[0,0,0],[0,1,0],[0,0,0]])
     kernel_negativo=np.array([[0,0,0],[0,-1,0],[0,0,0]])
     kernel_sobel_vertical=np.array([[-1,-2,-1],[0,0,0],[1,2,1]])
@@ -71,15 +74,15 @@ def main():
     kernel_sharpen=np.array([[-1,-1,-1],[-1,8,-1],[-1,-1,-1]])
     kernel_gaussian_5x5=np.array([[1,4,6,4,1],[4,16,24,16,4],[6,24,36,24,6],[4,16,24,16,4],[1,4,6,4,1]])
     kernel_unsharpen_5x5=np.array([[-1,-4,-6,-4,-1],[-4,-16,-24,-16,-4],[-6,-24,476,-24,-6],[-4,-16,-24,-16,-4],[-1,-4,-6,-4,-1]])
-    kernel_box_blur_11x11= np.array([[1 for i in range(12)]for i in range(12)])
+    kernel_box_blur_11x11= np.array([[1 for i in range(11)]for i in range(11)])
     kernel_lens_blur_11x11=np.array([[0,0,0,0,0,1,0,0,0,0,0],[0,0,0,1,1,1,1,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,1,1,1,1,1,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[0,1,1,1,1,1,1,1,1,1,0],[0,0,1,1,1,1,1,1,1,0,0],[0,0,0,1,1,1,1,1,0,0,0],[0,0,0,0,0,1,0,0,0,0,0]])
     kernel_motion_blur_11x11=np.array([[0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0]])
 
-    resultado = convolucion(imagen, kernel_sobel_vertical)
+    resultado = convolucion(imagen, kernel_gaussian_5x5)
  
     resultado = normalizar(resultado)
 
-    plt.imshow(resultado, cmap='jet')
+    plt.imshow(resultado, cmap='Greys')
     plt.show()
 if __name__ == '__main__':
     main()
