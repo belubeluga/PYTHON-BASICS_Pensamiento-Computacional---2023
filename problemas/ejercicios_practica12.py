@@ -23,8 +23,8 @@ with open('problemas/enigma.txt', encoding='utf-8') as file:
 
     ord_palabras = list(diccionario_palabras.keys())
     n=len(ord_palabras)
-    swapped = False
-    while not(swapped):
+    swapped = True
+    while swapped:
         swapped = False
         for i in range(1,n):
             if diccionario_palabras[ord_palabras[i-1]]>diccionario_palabras[i]:
