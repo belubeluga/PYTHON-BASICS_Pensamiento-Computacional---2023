@@ -46,3 +46,10 @@ def suma_gauss(n):
 
 suma_gauss(7)
 # %%
+def power(a,b):
+    if b == 1:
+        return a
+    else: 
+        return a * power(a, b-1)
+power(2,3)
+# %%
