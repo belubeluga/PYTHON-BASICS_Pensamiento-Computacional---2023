@@ -17,5 +17,32 @@ def mult(a:int,b:int)->int:
     else:
         return a + mult(a,b-1)
     
-mult(3,5)
+mult(7,7)
+# %% ejemplo fibonacci
+def fibonacci(n):
+    '''     '''
+    if n == 0 or n == 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+fibonacci(15)
+# %% MEMOIZATION    fibonacci con memoization
+def fibo (n, d) :
+    if n in d:
+        return d[n]
+    else:
+        print (f'f({n}) Recursión')
+        d[n] = fibo (n-1,d) + fibo (n-2,d)
+    return d[n]
+d= {0:0, 1:1}
+fibo (15, d)
+
+# %% suma Gauss
+def suma_gauss(n):
+    '''     '''
+    if n < 1:
+        return n
+    else: return n + suma_gauss(n-1)
+
+suma_gauss(7)
 # %%
