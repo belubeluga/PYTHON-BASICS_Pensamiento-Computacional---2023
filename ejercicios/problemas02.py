@@ -83,4 +83,4 @@ print(resumen)
 dibujo = str(" ___________"'\n'"|           |"'\n'"|  *     *  |"'\n'"|  *  *  *  |"'\n'"|  *     *  |"'\n'"|___________|")
 print(dibujo)
 
-# """ asdasdasd"""
+#%% 

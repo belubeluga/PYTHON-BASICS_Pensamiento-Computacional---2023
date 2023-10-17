@@ -229,3 +229,13 @@ lista = [['Mara', 47],['Matias',16],['Ines',14],['Tomas',12],['Joaquin',8],['Seb
 ordenar(lista,'Puntos')
 lista
 #%%
+
+
+
+#ERRORES COMUNES
+#diferencia entre:
+tuple = (1,2,3)
+lista = [tuple] #[(1, 2, 3)]
+lista2 = list(tuple) #[1, 2, 3]
+
+# %%
