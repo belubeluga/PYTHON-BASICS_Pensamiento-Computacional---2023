@@ -11,7 +11,7 @@ El programa debe utilizar diccionarios y un algoritmo de ordenamiento
 basado en los ya vistos (sin usar el método sort()).
 En el campus está disponible el archivo de prueba enigma.txt'''
 
-with open('enigma.txt', encoding='utf-8') as file:
+with open('problemas/enigma.txt', encoding='utf-8') as file:
     for linea in file:
         palabras = [palabras for palabras in linea.rstrip("\n").split()]
 
@@ -20,3 +20,17 @@ with open('enigma.txt', encoding='utf-8') as file:
         if palabra not in diccionario_palabras:
             diccionario_palabras[palabra]=0
         diccionario_palabras[palabra] += 1
+
+    ord_palabras = list(diccionario_palabras.keys())
+    n=len(ord_palabras)
+    swapped = False
+    while not(swapped):
+        swapped = False
+        for i in range(1,n):
+            if diccionario_palabras[ord_palabras[i-1]]>diccionario_palabras[i]:
+                ord_palabras[i-1],ord_palabras[i] = ord_palabras[i],ord_palabras[i-1]
+                swapped = True
+    for palabra in ord_palabras:
+        print(f"{palabra}:{diccionario_palabras[palabra]}")
+
+'''CORREGIR'''

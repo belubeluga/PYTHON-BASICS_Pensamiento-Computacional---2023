@@ -22,7 +22,7 @@ n = n + 1 #solo se hcae una vez (no queda en loop como en la matemática)
 # OPERADORES
     # ARITMÉTICOS
         # SUMA + (concatenar) (se puede sumar texto + texto)
-        # MULTIPBLICACIÓN * (tmb texto)
+        # MULTIPLICACIÓN * (tmb texto)
         # RESTA Y DIVISIÓN - /
     # LÓGICOS
         # and or not
