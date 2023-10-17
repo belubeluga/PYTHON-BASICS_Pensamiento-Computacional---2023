@@ -77,7 +77,7 @@ def buscar(lista:list, target) -> int:
         O(n!)      |  factorial      '''
 
 #VER EJEMPLOS!!!!! y como calcularlo matematicamente
-'''n = input()
+n = input()
 j=0
 #a)
 if n%2==0:      #complejidad = O(1)
@@ -114,7 +114,7 @@ for i in range(n):
     j=1
     while j<n:  #complejidad = O(n*log(n))
         j*=2
-        print(j)'''
+        print(j)
 #%%
 lista = [5,6,2,4,1,3] 
 n = len(lista)
