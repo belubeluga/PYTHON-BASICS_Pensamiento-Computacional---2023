@@ -10,6 +10,13 @@ tractor 8
 El programa debe utilizar diccionarios y un algoritmo de ordenamiento 
 basado en los ya vistos (sin usar el método sort()).
 En el campus está disponible el archivo de prueba enigma.txt'''
-with open("enigma.txt") as file:
+
+with open('enigma.txt', encoding='utf-8') as file:
     for linea in file:
-        print([palabras for palabras in linea.rstrip("\n").split(' ')])
+        palabras = [palabras for palabras in linea.rstrip("\n").split()]
+
+    diccionario_palabras = {}
+    for palabra in palabras:
+        if palabra not in diccionario_palabras:
+            diccionario_palabras[palabra]=0
+        diccionario_palabras[palabra] += 1
