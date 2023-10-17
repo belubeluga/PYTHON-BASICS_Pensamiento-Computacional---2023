@@ -1,4 +1,4 @@
-#--------------------ALGORITMOS DE BUSQUEDA-------------------- 9/10
+#-------------------- ALGORITMOS DE BUSQUEDA -------------------- 9/10
 #find index in
 
 #busqueda lineal:
