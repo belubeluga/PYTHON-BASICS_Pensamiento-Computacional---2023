@@ -88,4 +88,15 @@ def seleccion_recursiva(lista:list):
 #x eso es mas rapido el anterior, pero ambos funcionan y == complejidad
 lista = [1,4,2,3]
 print(seleccion_recursiva(lista))
+# %% burbujeo recursivo
+def burbujeo_recursivo(lista:list):
+    if len(lista)<=1:
+        return lista
+    for i in range(1,len(lista)):
+        if lista[i-1]>lista[i]:
+            lista[i-1],lista[i]=lista[i],lista[i-1]
+    return burbujeo_recursivo(lista[:-1])+[lista[-1]]
+
+lista = [1,4,2,3]
+print(burbujeo_recursivo(lista))
 # %%
