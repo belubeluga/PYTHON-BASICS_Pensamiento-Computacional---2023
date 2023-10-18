@@ -27,15 +27,16 @@ def fibonacci(n):
 
 fibonacci(15)
 # %% MEMOIZATION    fibonacci con memoization
+#Memoization: evitar tener q volver a hacer una recursion si ya la hice antes
 def fibo (n, d) :
     if n in d:
         return d[n]
     else:
-        print (f'f({n}) Recursión')
         d[n] = fibo (n-1,d) + fibo (n-2,d)
     return d[n]
 d= {0:0, 1:1}
-fibo (15, d)
+print(fibo (9, d))
+print(d)
 
 # %% suma Gauss
 def suma_gauss(n):
@@ -52,4 +53,39 @@ def power(a,b):
     else: 
         return a * power(a, b-1)
 power(2,3)
+# %% Convertir de decimal a binario
+def convertir_binario(numero:int)->str:
+    if numero>0: #o 1
+        return convertir_binario(numero//2)+str(numero%2)
+    else: return '' #y aca str(numero)
+convertir_binario(12)
+#%% "" en una linea
+def convertir_binario(numero:int):return convertir_binario(numero//2)+str(numero%2) if numero>0 else ''
+convertir_binario(12)
+# %% ordenamiento x seleccion recursivo
+def seleccion_recursiva(lista:list):
+    if len(lista)<=1:
+        return lista
+    else: 
+        minimo_idx = 0
+        for i, elem in enumerate(lista):
+            if elem<lista[minimo_idx]:
+                minimo_idx = i
+        lista[minimo_idx],lista[0]=lista[0],lista[minimo_idx]
+        return [lista[0]]+seleccion_recursiva(lista[1:])
+
+lista = [1,4,2,3]
+print(seleccion_recursiva(lista))
+# %% 
+def seleccion_recursiva(lista:list):
+    if len(lista)<=1:
+        return lista
+    else: 
+        minimo = min(lista) #te hace un for
+        minimo_idx = lista.index(minimo) #te hace otro
+        lista[minimo_idx],lista[0]=lista[0],lista[minimo_idx]
+        return [lista[0]]+seleccion_recursiva(lista[1:])
+#x eso es mas rapido el anterior, pero ambos funcionan y == complejidad
+lista = [1,4,2,3]
+print(seleccion_recursiva(lista))
 # %%
