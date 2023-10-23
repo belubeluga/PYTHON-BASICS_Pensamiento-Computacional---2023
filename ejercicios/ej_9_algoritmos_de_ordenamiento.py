@@ -129,7 +129,7 @@ def ordenar_costo_seleccion(lista):
     '''     '''
     for i in range(len(lista)-1):
         minimo = i
-        for j in range(1,len(lista)):
+        for j in range(i,len(lista)):
             if lista[j]["nombre"]<lista[minimo]["nombre"]:
                 minimo = j
             j = i
