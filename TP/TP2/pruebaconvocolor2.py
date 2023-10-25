@@ -66,7 +66,7 @@ def normalizar(imagen):
 
 def main():
     kernel=np.array([[-1,-2,11],[0,0,0],[1,2,1]])
-    imagen=(('TP/TP2/baboon.png'))
+    imagen=(('TP/TP2/IMG_7816.jpeg'))
     kernel_identidad=np.array([[0,0,0],[0,1,0],[0,0,0]])
     kernel_negativo=np.array([[0,0,0],[0,-1,0],[0,0,0]])
     kernel_sobel_vertical=np.array([[-1,-2,-1],[0,0,0],[1,2,1]])
@@ -78,7 +78,7 @@ def main():
     kernel_lens_blur_11x11=np.array([[0,0,0,0,0,1,0,0,0,0,0],[0,0,0,1,1,1,1,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,1,1,1,1,1,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[0,1,1,1,1,1,1,1,1,1,0],[0,0,1,1,1,1,1,1,1,0,0],[0,0,0,1,1,1,1,1,0,0,0],[0,0,0,0,0,1,0,0,0,0,0]])
     kernel_motion_blur_11x11=np.array([[0,0,0,0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0,0,1,0],[0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0]])
 
-    resultado = convolucion(imagen, kernel_gaussian_5x5)
+    resultado = convolucion(imagen, kernel_sobel_horizonal)
  
     resultado = normalizar(resultado)
 

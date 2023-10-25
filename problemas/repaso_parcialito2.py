@@ -2,23 +2,24 @@
 Ejercicio 1
 Se tiene una lista que contiene diccionarios con las claves ?nombre?, ?mesa?, y ?especial?.
 Sacados del archivo csv.'''
-
+#%%
 def csv_to_dict(archivo:str)->list[dict]:
     ''' '''
     lista = []
     with open(archivo) as f:
-        claves = f.readline().rstrip('\n').split(',')
+        claves = f.readline().strip().split(',')
         texto = f.readlines()
         for linea in texto:
             datos = linea.rstrip('\n').split(',')
-            lista.append({claves[0]:datos[0].strip(),
-                          claves[1]:int(datos[1].strip()),
-                          claves[2]:datos[2].strip()})
+            lista.append({claves[0].strip():datos[0].strip(),
+                          claves[1].strip():int(datos[1].strip()),
+                          claves[2].strip():datos[2].strip()})
     return lista
 
 
-lista = csv_to_dict("problemas/clientes.csv")
-
+lista = csv_to_dict("clientes.csv")
+print(lista)
+#%%
 '''Un ejemplo de listas de este
 tipo es el siguiente:'''
 [{"nombre": "Gabi", "mesa": 3, "especial": "si"},
