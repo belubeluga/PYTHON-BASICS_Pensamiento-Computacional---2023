@@ -28,4 +28,4 @@ def es_ancestro(apellido1,apellido2, arbol):
         if es:
             return True
     return False
-print(es_ancestro("d","l",family_tree))
+print(es_ancestro("m","f",family_tree))
