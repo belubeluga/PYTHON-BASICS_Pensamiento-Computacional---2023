@@ -135,7 +135,7 @@ def selection_sort(lista):
         for k in range(j, len(lista)):
             if lista[k]<lista[i_minimo]:
                 i_minimo = k
-            k = j
+            k=j
         lista[i_minimo],lista[j] = lista[j],lista[i_minimo]    
 
 lista = [4,5,8,72,3]
@@ -215,7 +215,7 @@ indice_numero = busqueda_corte(8, lista)
 
 #%% ejercicio 2 clase tutorial
 
-def ordenar(lista,campo):
+def ordenar(lista:list[dict],campo):
     if campo.lower() == 'puntos':
         index = 1
     elif campo.lower() == 'nombre':
@@ -238,4 +238,64 @@ tuple = (1,2,3)
 lista = [tuple] #[(1, 2, 3)]
 lista2 = list(tuple) #[1, 2, 3]
 
+# %%
+family_tree = {
+    "a": (),
+    "b": (),
+    "c": ("a", "b"),
+    "d": ("a", "b"),
+    "e": ("a", "b"),
+    "f": ("m", "n"),
+    "g": ("f", "c"),
+    "h": ("f", "c"),
+    "i": ("d",),
+    "j": ("d",),
+    "k": (),
+    "l": ("j", "k"),
+    "m": (),
+    "n": (),
+}
+
+def familiar(p,h,arbol):
+    if p in arbol[h]:
+        return True
+    for padre in arbol[h]:
+        if familiar(p,padre,arbol):
+            return True
+        else: return False
+    return False
+familiar("a","n",family_tree)
+# %%
+def ord_s(lista,clave):
+    for i in range(len(lista)-1):
+        min = i
+        for j in range(i, len(lista)):
+            if lista[j][clave]<lista[min][clave]:
+                min = j
+            j = i
+        lista[j],lista[min]=lista[min],lista[j]
+lista = [{"codigo": "alfa", "magnitud": 3, "unidad": "ly"},
+ {"codigo": "beta", "magnitud": 1, "unidad": "kly"},
+ {"codigo": "gamma", "magnitud": 3, "unidad": "kly"},
+ {"codigo": "delta", "magnitud": 1, "unidad": "ly"},
+ {"codigo": "epsilon", "magnitud": 1, "unidad": "ly"},
+ {"codigo": "dseta", "magnitud": 2, "unidad": "ly"},
+ {"codigo": "eta", "magnitud": 2, "unidad": "kly"},
+ {"codigo": "theta", "magnitud": 3, "unidad": "kly"},
+ {"codigo": "iota", "magnitud": 1, "unidad": "ly"},
+ {"codigo": "kappa", "magnitud": 2, "unidad": "ly"},
+ {"codigo": "lambda", "magnitud": 2, "unidad": "ly"}]
+ord_s(lista,"magnitud")
+print(lista)
+
+def ord_b(lista,codigo):
+    for i in range(1,len(lista)):
+        for k in range(1,len(lista)-i+1):
+            if lista[k-1][codigo]>lista[k][codigo]:
+                lista[k],lista[k-1]=lista[k-1],lista[k]
+ord_b(lista,"codigo")
+print(lista)
+
+def ord_i(lista,codigo):
+    ''''''
 # %%

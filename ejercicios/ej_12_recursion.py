@@ -195,4 +195,52 @@ def tenis(x,y, jugador):
             y == 60
     tenis(x,y,input("ganador"))
 def tenis(x,,)
+# %% 12
+'''Escribir una especificación apropiada para la siguiente función. 
+Se asume que n es un número entero:'''
+def invertir(n):
+    s = str(n)
+
+    if len(s) <= 1:
+        return s
+
+    return s[-1] + invertir(int(s[:-1]))
+invertir(3456)
+# %% 13
+'''Dadas las siguientes funciones:'''
+
+def int_a_str(x):
+    return suma_digitos(str(x))
+
+def suma_digitos(xs):
+    if len(xs) == 1:
+        return int(xs)
+
+    n = int(xs[0]) + int(xs[1])
+
+    if len(xs) == 2:
+        return n
+    else:
+        return n + suma_digitos(xs[2:])
+
+'''¿Qué retorna g(2112)?
+Escriba una especificación para la función h().'''
+print(int_a_str(2112))
+
+# %% 14
+tupla = (((None, 4.2, None), 9.8, None), 17.5, ((None, 21.32, None), 28, (None, 32.7, None)))
+'''Escribir una función recursiva que, mediante la estrategia de división y conquista, 
+dada una variable con la tupla de tuplas y un número devuelva si el número está presente 
+en la tupla de tuplas o no.
+Dar ejemplos de ejecución del código declarando las variables y funciones utilizadas.'''
+def encontrar_en_tupla(numero, tupla):
+    medio = len(tupla)//2
+    if tupla[medio]==numero:
+        return True
+    if tupla[medio]>numero:
+        if tupla[0]==None: return None
+        return encontrar_en_tupla(numero,tupla[0])
+    if tupla[2]==None: return None
+    return encontrar_en_tupla(numero,tupla[2])
+print(encontrar_en_tupla(21.32,tupla))
 # %%

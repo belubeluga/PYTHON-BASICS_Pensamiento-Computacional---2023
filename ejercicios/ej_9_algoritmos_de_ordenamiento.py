@@ -8,6 +8,7 @@ def seleccion(lista:list):
         for j in range(i,len(lista)):
             if lista[j]<lista[minimo]:
                 minimo = j
+            j = i
         lista[minimo],lista[i] = lista[i],lista[minimo]
     return lista
 l = [3,5,2,1,4]

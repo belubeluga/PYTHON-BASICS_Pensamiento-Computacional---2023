@@ -17,8 +17,8 @@ def csv_to_dict(archivo:str)->list[dict]:
     return lista
 
 
-lista = csv_to_dict("clientes.csv")
-print(lista)
+lista = csv_to_dict("problemas/clientes.csv")
+print(f'EJERCICIO 1: {lista}')
 #%%
 '''Un ejemplo de listas de este
 tipo es el siguiente:'''
@@ -39,27 +39,18 @@ tipo es el siguiente:'''
 No está permitido usar la función built-in sorted , ni el método sort de las listas, 
 ni el algoritmo bubblesort.'''
 
-def orden_nombre(lista:list):
+def orden_indice(lista:list,indice):
     '''     '''
     for i in range(len(lista)-1):
         minimo = i
         for j in range(i, len(lista)):
-            if lista[minimo]["nombre"] > lista[j]["nombre"]:
+            if lista[minimo][indice] > lista[j][indice]:
                 minimo = j
         lista[minimo],lista[i] = lista[i],lista[minimo]
     return lista
-lista1 = orden_nombre(lista)
+lista_ordenada_nombre = orden_indice(lista,"nombre")
 
-def orden_mesa(lista:list):
-    '''     '''
-    for i in range(len(lista)-1):
-        minimo = i
-        for j in range(i, len(lista)):
-            if lista[minimo]["mesa"] > lista[j]["mesa"]:
-                minimo = j
-        lista[minimo],lista[i] = lista[i],lista[minimo]
-    return lista
-orden_mesa(lista)
+lista_ordenada_mesa = orden_indice(lista,"mesa")
 
 '''Ejercicio 2
 Dada una de las listas que se obtiene como resultado de aplicar una de las funciones 
@@ -78,14 +69,14 @@ def mesa_nombre(lista:list,nombre:str)->int:
             medio = len(lista[medio:])//2
     return lista[medio]["mesa"]
 
-print(mesa_nombre(lista1,"Cris"))
+print(f'EJERCICIO 2: {mesa_nombre(lista_ordenada_nombre,"Cris")}')
 
 '''Ejercicio 3
 Considerando una de las listas del ejemplo, implementar una función recursiva que mediante 
 la estrategia Divide & Conquer nos devuelva cuántos diccionarios hay en los cuales 
 ?si? es el valor asociado a la clave ?especial?.'''
 #%%
-lista = [{"nombre": "Gabi", "mesa": 3, "especial": "si"},
+[{"nombre": "Gabi", "mesa": 3, "especial": "si"},
  {"nombre": "Dani", "mesa": 1, "especial": "no"},
  {"nombre": "Aike", "mesa": 3, "especial": "si"},
  {"nombre": "Pato", "mesa": 1, "especial": "si"},
@@ -106,5 +97,5 @@ def especial_si(lista):
         medio = len(lista)//2
         lista1,lista2 = lista[:medio],lista[medio:]
         return especial_si(lista2) + especial_si(lista1)
-especial_si(lista)
+print(f'EJERCICIO 3: {especial_si(lista)}')
 # %%
