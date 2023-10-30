@@ -159,7 +159,7 @@ while (<condicion>){ // se mantiene la iteracion mientras la condicion sea 1
       printf("x vale %i\n", x);
       x++; //incrementa (en 1) / ++x = x++
       if (x == 5) {
-        break; //condicion de corte
+        break; //condicion de corte (continue tmb funciona igual)
       }
     } 
     printf("x quedó en %i",x);
@@ -167,3 +167,52 @@ return 0;
     }
 
 // ++ = +1
+
+/*
+FOR
+---
+for (<exp_inicial>; <exp_condicion>; <exp_iteración>){
+  <sentencia_1>
+  <sentencia_2>
+}
+*/
+#include <stdio.h>
+int main(void)
+{
+    int n;
+    for (n = 0; n < 10; n++)
+    {
+      printf("Iteración número %i\n",n);
+    }
+    return 0; 
+}
+
+/*
+rand()
+------
+Devuelve un valor entero entre 0 y RAND_MAX (constante definida en stdlib.h). 
+Todos los posibles números tienen la misma probabilidad de ocurrir (uniforme).
+
+srand()
+-------
+Establece la semilla que rand() usará para generar números pseudo-aleatorios. 
+Si no se fija una semilla, por defecto siempre será la misma, igual a 1.
+#include <stdlib.h>
+
+time()
+------
+(para q no se repita el num random del algoritmo y genere numeros random NUEVOS)
+Permite obtener el tiempo actual en segundos, contado desde 
+el 1 de enero de 1970 (timestamp de Unix).
+Es útil para usar el tiempo actual como semilla de rand(), 
+así el patrón aleatorio es siempre distinto.
+#include <time.h>
+*/
+
+/*
+PROBLEMA 1
+Implementar en C un código que calcule el área y perímetro de un c
+írculo. Debe definir una constante con el número pi (al menos con 4 decimales), 
+solicitar el ingreso del radio del círculo desde la terminal y luego 
+imprimir un resumen con el área y perímetro calculados.
+*/
