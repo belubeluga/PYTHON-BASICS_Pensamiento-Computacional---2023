@@ -124,18 +124,31 @@ def main():
     glFrustum(-1, 1, -1, 1, 2, 50)  # Configura la proyección perspectiva (frustum).
     glMatrixMode(GL_MODELVIEW)  # Establece la matriz de modelo-vista.
     glTranslatef(0.0, 0.0, -5)  # Realiza una traslación en el espacio de modelo-vista.
-
+    angle = 0
+    angle2 = 0
     ejecutando = True
     while ejecutando:
-        for evento in pygame.event.get():  # Maneja eventos de Pygame.
-            if evento.type == pygame.QUIT:  # Si se cierra la ventana, termina el bucle.
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
                 ejecutando = False
             elif evento.type == pygame.KEYDOWN:
                 if evento.key == pygame.K_v:
-                    # Presionar la tecla "v" para cerrar el programa.
                     ejecutando = False
+                elif evento.key == pygame.K_LEFT:
+                    angle -= 0.1  # Rotar hacia la izquierda
+                elif evento.key == pygame.K_RIGHT:
+                    angle += 0.1  # Rotar hacia la derecha
+                elif evento.key == pygame.K_UP:
+                    angle2 -= 0.1  # Rotar hacia la izquierda
+                elif evento.key == pygame.K_DOWN:
+                    angle2 += 0.1  # Rotar hacia la derecha
 
-        glRotatef(1, 3, 1, 1)  # Realiza una rotación en el espacio de modelo-vista.
+        glRotatef(angle, 0, 1, 0)  # Realiza una rotación en el espacio de modelo-vista.
+        glRotatef(angle2, 0, 0, 0)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glClearColor(1.0, 1.0, 1.0, 1.0)
+
+        #glRotatef(1, 3, 1, 1)  # Realiza una rotación en el espacio de modelo-vista.
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)  # Limpia los buffers de color y profundidad.
         glClearColor(1.0, 1.0, 1.0, 1.0) 
         
