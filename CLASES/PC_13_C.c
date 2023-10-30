@@ -13,6 +13,9 @@ int main(void)
 
 /*  
 
+-------------------- C -------------------- 30/10
+codigo compilador ejecutable ejecucion
+
 EJECUTABLE Y EJECUTAR:
 ----------------------
 gcc -Wall -std=c17 -o ejecutable hola.c  
@@ -21,7 +24,7 @@ gcc -Wall -std=c17 -o ejecutable hola.c
 
 TIPOS DE DATOS
 --------------
-* char -> caracter, 1 byte
+* char -> caracter, 1 byte // [0,255] o [-128,127] con signo
 * short
 * int
 * long
