@@ -4,49 +4,7 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLUT import *
 
-def dibujar_esfera(radio, num_segmentos):
-    phi = 0
-    theta = 0
-    d_phi = 2 * pi / num_segmentos
-    d_theta = pi / num_segmentos
 
-    for i in range(num_segmentos):
-        glBegin(GL_QUAD_STRIP)
-
-        for j in range(num_segmentos + 1):
-            x1 = radio * sin(theta) * cos(phi)
-            y1 = radio * sin(theta) * sin(phi)
-            z1 = radio * cos(theta)
-
-            x2 = radio * sin(theta + d_theta) * cos(phi)
-            y2 = radio * sin(theta + d_theta) * sin(phi)
-            z2 = radio * cos(theta + d_theta)
-            glColor3f(0.0,0.0,0.0)
-            glVertex3f(x1, y1, z1)
-            glVertex3f(x2, y2, z2)
-
-            phi += d_phi
-
-        glEnd()
-        theta += d_theta
-        phi = 0
-
-"""def dibujar_circulo():
-    num_segmentos = 50
-    radio = 0.5  # Radio del círculo
-
-    glBegin(GL_TRIANGLE_FAN)
-    glColor(0.0,0.0,0.0)
-    glVertex2f(0, 0)  # Centro del círculo
-
-    for i in range(num_segmentos + 1):
-        # Calcular el ángulo para cada vértice
-        angulo = 2.0 * 3.14159265358979323846 * i / num_segmentos
-        x = radio * cos(angulo)
-        y = radio * sin(angulo)
-        glVertex2f(x, y)
-
-    glEnd()"""
 
 def dibujar_ejes():
     glBegin(GL_LINES)
@@ -135,18 +93,18 @@ def main():
                 if evento.key == pygame.K_v:
                     ejecutando = False
                 elif evento.key == pygame.K_LEFT:
-                    angle -= 0.1  # Rotar hacia la izquierda
+                    angle -= 0.2  # Rotar hacia la izquierda
                 elif evento.key == pygame.K_RIGHT:
-                    angle += 0.1  # Rotar hacia la derecha
+                    angle += 0.2  # Rotar hacia la derecha
                 elif evento.key == pygame.K_UP:
-                    angle2 -= 0.1  # Rotar hacia la izquierda
+                    angle2 -= 0.2  # Rotar hacia la izquierda
                 elif evento.key == pygame.K_DOWN:
-                    angle2 += 0.1  # Rotar hacia la derecha
+                    angle2 += 0.2  # Rotar hacia la derecha
 
         glRotatef(angle, 0, 1, 0)  # Realiza una rotación en el espacio de modelo-vista.
         glRotatef(angle2, 0, 0, 0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        glClearColor(1.0, 1.0, 1.0, 1.0)
+        glClearColor(1.0, 1.0, 1.0, 0.0)
 
         #glRotatef(1, 3, 1, 1)  # Realiza una rotación en el espacio de modelo-vista.
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)  # Limpia los buffers de color y profundidad.
@@ -154,8 +112,7 @@ def main():
         
         dibujar_cubo()  # Llama a la función para dibujar el cubo.
         dibujar_ejes()
-        #dibujar_circulo()
-        dibujar_esfera(1.0,50)
+
         pygame.display.flip()  # Actualiza la ventana.
         pygame.time.wait(10)  # Espera un tiempo breve para controlar la velocidad de fotogramas.
 
