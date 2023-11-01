@@ -29,13 +29,24 @@ gcc -Wall -std=c17 -o ejecutable PC_13_C.c
 
 TIPOS DE DATOS
 --------------
-* char -> caracter, 1 byte // unsignes char:[0,255] / char:[-128,127] (con signo)
+* char -> caracter, 1 byte
+    char:[-2^7,2^7-1] (con signo) / [-128,127]
+    unsignes char:[0,255] / [0, 2^8-1]
 * short -> 2 bytes // entero corto
+    short:[-2^15,2^15-1]
+    unsigned short: [0, 2^16-1]
 * int -> 4 bytes 
+    int: [-2^31,2^31-1] (cantidad de bits menos 1)
+    unsigned int: [0,2^32-1]
 * long -> 8
+    long: [-2^63,2^63-1]
+    unsigned long: [0,2^64-1] ---->unsigned UL
 
-* float -> 4 // precision simple
+(cuantizacion no uniforme)
+* float -> 4 // precision simple -->menos precision
 * double -> 8 // precision doble
+    largo: signo*mantisa* 2**exponente
+
 
 caracteres(char) 'A' '3' '\0' '\n' 
 strins(char*) -> "a" (incluye \0) (OJO " != ')
