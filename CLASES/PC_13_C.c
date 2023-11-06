@@ -227,3 +227,78 @@ írculo. Debe definir una constante con el número pi (al menos con 4 decimale
 solicitar el ingreso del radio del círculo desde la terminal y luego 
 imprimir un resumen con el área y perímetro calculados.
 */
+
+
+
+/*-------------------- C -------------------- 30/10
+FUNCIONES
+<tipo> <funcion>(<tipo> <arg1>, <tipo> <arg2>,....){
+  <sentencia_1>
+  <sentencia_2>
+   return <valor_retorno>;
+}
+
+*/
+
+#include <stdio.h>
+   float sumar(float a, float b){ // ACLARAR TIPOS!!
+      float c;
+c = a + b;
+return c; }
+   int main(void)
+   {
+     float x = 5;
+     float y = 25;
+     float s;
+     s = sumar(x,y);
+     printf("resultado: x + y = %f\n", s);
+     return 0;
+}
+
+/*
+VOID
+"sin tipo"
+--> no devuelve nada
+int func(void) (entra int y no devuelve nada)
+void func(void)
+*/
+#include <stdio.h>
+void menu(void){ //no recibe ni retorna nada
+  printf("Ingrese una opción:\n");
+  printf("[1] Fácil\n");
+  printf("[2] Dificil\n");
+  printf("[3] Salir\n");
+}
+int main(void){
+  menu();
+return 0; }
+
+// DECLARACION
+int function(int, int);
+/* En la declaración se especifica solo el nombre, el tipo que devuelve 
+y los tipos de los argumentos. 
+Termina con punto y coma; */
+
+//DEFINICION
+int function(int x, int y){
+}
+/* En la definición se define el cuerpo de la función, es decir, 
+las instrucciones que deberá ejecutar (entre llaves { }) */
+
+void menu(void){
+  puts("Ingrese una opción:");
+  puts("[1] Fácil");
+  puts("[2] Dificil");
+  puts("[3] Salir");
+}
+int select(void){
+  int op;
+  scanf("%i",&op); // puntero
+return op; }
+
+// VARIABLES DE ALCANCE GLOBAL Y LOCAL
+
+// ARCHIVOS.c
+/*ARCHIVOS.h --> headers
+directivas (no incluyen instructivos)
+*/
