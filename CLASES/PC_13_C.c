@@ -302,3 +302,5 @@ return op; }
 /*ARCHIVOS.h --> headers
 directivas (no incluyen instructivos)
 */
+
+//CONVERSION AUTOMATICA de tipos
